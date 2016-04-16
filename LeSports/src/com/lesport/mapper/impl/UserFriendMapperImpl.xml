@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	namespace：必须与对应的接口全类名一致
+	id:必须与对应接口的某个对应的方法名一致
+	
+ -->
+<mapper namespace="com.lesport.mapper.IUserFriendMapper">
+	
+	<!-- mybsits_config中配置的alias类别名,也可直接配置resultType为类路劲 -->  
+	
+	<!-- 关注好友 -->
+	<insert id="addFriend" parameterType="UserFriend">
+		insert into le_user_friend(ROWID,USER_ID,FRIEND_ID,FRIEND_FLAG,CREATED_DATE,DELETE_FLAG) 
+		values(#{userFriend.userFriendId},#{userFriend.userId},#{userFriend.friendId},#{userFriend.friendFlag},#{userFriend.createdDate},#{userFriend.deleteFlag})
+	</insert>
+	<!-- 取消关注好友 -->
+	<delete id="deleteFriend" parameterType="String">
+		delete from le_user_friend where USER_ID=#{userId} and FRIEND_ID=#{friendId}
+	</delete>
+	<!-- 发现附近好友 -->
+	<select id="findFriendNearby" resultType="UserInfo">
+	select le_userinfo.ROWID userId,le_userinfo.USER_NAME userName,le_userinfo.USER_PWD userPwd,
+		le_userinfo.NICK_NAME nickName,le_userinfo.IMG_URL imgURL,le_userinfo.SEX sex,
+		le_userinfo.PHONE_NUM phoneNum,le_userinfo.EMAIL email,le_userinfo.HEIGHT height,
+		le_userinfo.WEIGHT weight,le_userinfo.BIRTHDAY birthday,le_userinfo.SPORT_TYPE sportType,
+		le_userinfo.LEVEL level,le_userinfo.WEIBO_NUM weiboNum,le_userinfo.QQ_NUM qqNum,le_userinfo.LE_NUM leNum,
+		le_userinfo.CIRCLE_AUTH circleAuth,le_userinfo.PROVINCE province,le_userinfo.CITY city,le_userinfo.LNG lng,
+		le_userinfo.LAT lat,le_userinfo.RUN_DISTANCE runDistance,le_userinfo.RUN_TIME runTime,
+		le_userinfo.RUN_COUNT runCount,le_userinfo.CALORIE_SUM calorieSum,le_userinfo.TOTAL_STEP totalStep,
+		le_userinfo.LAST_LOGTIME lastLogTime,le_userinfo.CREATED_DATE createdDate,le_userinfo.DELETE_FLAG deleteFlag
+		from le_userinfo
+	</select>
+	<!-- 更新经纬度 -->
+	<update id="updateLngLat" parameterType="String">
+		update le_userinfo set LNG=#{lng},LAT=#{lat} where ROWID=#{userId}
+	</update>
+	<!--我的好友列表/粉丝列表接口  -->
+	<!--我的好友列表 -->
+	<select id="myFriendsList" resultType="UserInfo" parameterType="String">
+		select le_userinfo.ROWID userId,le_userinfo.USER_NAME userName,le_userinfo.USER_PWD userPwd,
+		le_userinfo.NICK_NAME nickName,le_userinfo.IMG_URL imgURL,le_userinfo.SEX sex,
+		le_userinfo.PHONE_NUM phoneNum,le_userinfo.EMAIL email,le_userinfo.HEIGHT height,
+		le_userinfo.WEIGHT weight,le_userinfo.BIRTHDAY birthday,le_userinfo.SPORT_TYPE sportType,
+		le_userinfo.LEVEL level,le_userinfo.WEIBO_NUM weiboNum,le_userinfo.QQ_NUM qqNum,le_userinfo.LE_NUM leNum,
+		le_userinfo.CIRCLE_AUTH circleAuth,le_userinfo.PROVINCE province,le_userinfo.CITY city,le_userinfo.LNG lng,
+		le_userinfo.LAT lat,le_userinfo.RUN_DISTANCE runDistance,le_userinfo.RUN_TIME runTime,
+		le_userinfo.RUN_COUNT runCount,le_userinfo.CALORIE_SUM calorieSum,le_userinfo.TOTAL_STEP totalStep,
+		le_userinfo.LAST_LOGTIME lastLogTime,le_userinfo.CREATED_DATE createdDate,le_userinfo.DELETE_FLAG deleteFlag
+	    FROM le_userinfo,le_user_friend WHERE 
+	    le_user_friend.FRIEND_ID =le_userinfo.ROWID and le_user_friend.USER_ID=#{userId}
+	</select>
+	<!--我的粉丝列表 -->
+	<select id="myFansList" resultType="UserInfo" parameterType="String">
+		select le_userinfo.ROWID userId,le_userinfo.USER_NAME userName,le_userinfo.USER_PWD userPwd,
+		le_userinfo.NICK_NAME nickName,le_userinfo.IMG_URL imgURL,le_userinfo.SEX sex,
+		le_userinfo.PHONE_NUM phoneNum,le_userinfo.EMAIL email,le_userinfo.HEIGHT height,
+		le_userinfo.WEIGHT weight,le_userinfo.BIRTHDAY birthday,le_userinfo.SPORT_TYPE sportType,
+		le_userinfo.LEVEL level,le_userinfo.WEIBO_NUM weiboNum,le_userinfo.QQ_NUM qqNum,le_userinfo.LE_NUM leNum,
+		le_userinfo.CIRCLE_AUTH circleAuth,le_userinfo.PROVINCE province,le_userinfo.CITY city,le_userinfo.LNG lng,
+		le_userinfo.LAT lat,le_userinfo.RUN_DISTANCE runDistance,le_userinfo.RUN_TIME runTime,
+		le_userinfo.RUN_COUNT runCount,le_userinfo.CALORIE_SUM calorieSum,le_userinfo.TOTAL_STEP totalStep,
+		le_userinfo.LAST_LOGTIME lastLogTime,le_userinfo.CREATED_DATE createdDate,le_userinfo.DELETE_FLAG deleteFlag
+	    FROM le_userinfo,le_user_friend WHERE 
+	    le_user_friend.USER_ID =le_userinfo.ROWID and le_user_friend.FRIEND_ID=#{userId}
+	</select>
+	<!--好友详情接口 -->
+	<select id="getFriendInfo" resultType="UserInfo" parameterType="String">
+		select le_userinfo.ROWID userId,le_userinfo.USER_NAME userName,le_userinfo.USER_PWD userPwd,
+		le_userinfo.NICK_NAME nickName,le_userinfo.IMG_URL imgURL,le_userinfo.SEX sex,
+		le_userinfo.PHONE_NUM phoneNum,le_userinfo.EMAIL email,le_userinfo.HEIGHT height,
+		le_userinfo.WEIGHT weight,le_userinfo.BIRTHDAY birthday,le_userinfo.SPORT_TYPE sportType,
+		le_userinfo.LEVEL level,le_userinfo.WEIBO_NUM weiboNum,le_userinfo.QQ_NUM qqNum,le_userinfo.LE_NUM leNum,
+		le_userinfo.CIRCLE_AUTH circleAuth,le_userinfo.PROVINCE province,le_userinfo.CITY city,le_userinfo.LNG lng,
+		le_userinfo.LAT lat,le_userinfo.RUN_DISTANCE runDistance,le_userinfo.RUN_TIME runTime,
+		le_userinfo.RUN_COUNT runCount,le_userinfo.CALORIE_SUM calorieSum,le_userinfo.TOTAL_STEP totalStep,
+		le_userinfo.LAST_LOGTIME lastLogTime,le_userinfo.CREATED_DATE createdDate,le_userinfo.DELETE_FLAG deleteFlag
+	    FROM le_userinfo  WHERE 
+	    le_userinfo.ROWID=#{userId}
+	</select>
+    <!--搜索好友  -->
+	<select id="searchFriend" resultType="UserInfo2" statementType="CALLABLE">
+		{call test(#{userId,mode=IN,jdbcType=VARCHAR},#{le_id,mode=IN,jdbcType=VARCHAR})}
+	</select>
+	<select id="getAll" resultType="UserInfo2">
+	SELECT ROWID AS userId,USER_NAME AS userName,NICK_NAME AS nickName,IMG_URL AS imgURL,sex AS sex,
+	(YEAR(CURDATE())-YEAR(BIRTHDAY))-1+((RIGHT(CURDATE(),5)>RIGHT(BIRTHDAY,5))) AS age,
+	RUN_DISTANCE AS runDistance,TOTAL_STEP AS totalStep FROM le_userinfo WHERE le_num=#{le_id} OR NICK_NAME LIKE CONCAT('%',#{le_id},'%')
+	</select>
+	
+	
+	<!--推荐好友接口 
+	<select id="recommendFriends" resultType="UserInfo" parameterType="String">
+		select le_userinfo.ROWID userId,le_userinfo.USER_NAME userName,le_userinfo.USER_PWD userPwd,
+		le_userinfo.NICK_NAME nickName,le_userinfo.IMG_URL imgURL,le_userinfo.SEX sex,
+		le_userinfo.PHONE_NUM phoneNum,le_userinfo.EMAIL email,le_userinfo.HEIGHT height,
+		le_userinfo.WEIGHT weight,le_userinfo.BIRTHDAY birthday,le_userinfo.SPORT_TYPE sportType,
+		le_userinfo.LEVEL level,le_userinfo.WEIBO_NUM weiboNum,le_userinfo.QQ_NUM qqNum,le_userinfo.LE_NUM leNum,
+		le_userinfo.CIRCLE_AUTH circleAuth,le_userinfo.PROVINCE province,le_userinfo.CITY city,le_userinfo.LNG lng,
+		le_userinfo.LAT lat,le_userinfo.RUN_DISTANCE runDistance,le_userinfo.RUN_TIME runTime,
+		le_userinfo.RUN_COUNT runCount,le_userinfo.CALORIE_SUM calorieSum,le_userinfo.TOTAL_STEP totalStep,
+		le_userinfo.LAST_LOGTIME lastLogTime,le_userinfo.CREATED_DATE createdDate,le_userinfo.DELETE_FLAG deleteFlag
+	    FROM le_userinfo 
+	</select>-->
+	
+</mapper>

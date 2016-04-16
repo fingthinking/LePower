@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	namespace：必须与对应的接口全类名一致
+	id:必须与对应接口的某个对应的方法名一致
+	
+ -->
+<mapper namespace="com.lesport.mapper.IUserInfoMapper">
+	
+	<insert id="addUserInfo" parameterType="UserInfo">
+		insert into LE_USERINFO(USER_NAME,USER_PWD,NICK_NAME,IMG_URL,SEX,PHONE_NUM,EMAIL,
+		HEIGHT,WEIGHT,BRITHDAY,SPORT_TYPE,LEVEL,WEIXIN_NUM,QQ_NUM,LE_NUM,CIRCLE_AUTH,PROVINCE,CITY,
+		LNG,LAT,RUN_DISTANCE,RUN_TIME,RUN_COUNT,CALORIE_SUM,TOTAL_STEP,LAST_LOGTIME,CREATED_DATE,DELETE_FLAG) 
+		values(#{userName},#{userPwd},#{nickName},#{imgURL},#{sex},#{phoneNum},#{email},
+		#{height},#{weight},#{birthday},#{sportType},#{level},#{weiboNum},#{qqNum},#{leNum},#{circleAuth},#{province},#{city},
+		#{lng},#{lat},#{runDistance},#{runTime},#{runCount},#{calorieSum},#{totalStep},#{lastLogTime},#{createdDate},#{deleteFlag})
+	</insert>
+	
+	
+	
+	<delete id="deleteUserInfo" parameterType="int">
+		delete from LE_USERINFO where USERID = #{userId}
+	</delete>
+	
+	 <!-- mybsits_config中配置的alias类别名,也可直接配置resultType为类路劲 -->  
+	<select id="findUserInfoById" parameterType="String" resultType="UserInfo">
+		select rowid userId,le_num leNum,img_url imgURL,nick_name nickName,sex, phone_num phoneNum,email,birthday,weibo_num weiboNum,qq_num qqNum,province,city from LE_USERINFO where rowid = #{userId}
+	</select>
+	
+	<select id="getAllUserInfo" resultType="UserInfo">
+		select * from LE_USERINFO
+	</select>
+	
+	
+	<!-- 下面是我实现的代码，上面是demo的代码 -->
+	<!-- 为用户注册写的测试demo -->
+	<insert id="caoStuTemp" parameterType="com.lesport.model.CaoStuTemp">
+		insert into cao_stu_temp(str1,str2,str3,str4) values (#{crsh.str1},#{crsh.str2},#{crsh.str3},#{crsh.str4})
+	</insert>
+	<select id="isExistStu" parameterType="string" resultType="string">
+		select str1 from cao_stu_temp where str1 = #{str1}
+	</select>
+	
+	<select id="isExistUser" parameterType="string" resultType="string">
+		select ROWID userId from le_userinfo where PHONE_NUM = #{userName} or EMAIL = #{userName}
+	</select>
+	
+	<!-- 用户注册，传入用户对象实体，返回空void -->
+	<insert id="register" parameterType="UserInfo">
+		insert into LE_USERINFO(ROWID,USER_NAME,USER_PWD,NICK_NAME,IMG_URL,SEX,PHONE_NUM,EMAIL,
+		HEIGHT,WEIGHT,BIRTHDAY,SPORT_TYPE,LEVEL,WEIBO_NUM,QQ_NUM,LE_NUM,CIRCLE_AUTH,PROVINCE,CITY,
+		LNG,LAT,RUN_DISTANCE,RUN_TIME,RUN_COUNT,CALORIE_SUM,TOTAL_STEP,LAST_LOGTIME,CREATED_DATE,DELETE_FLAG) 
+		values(#{userInfo.userId},#{userInfo.userName},#{userInfo.userPwd},#{userInfo.nickName},#{userInfo.imgURL},#{userInfo.sex},#{userInfo.phoneNum},#{userInfo.email},
+		#{userInfo.height},#{userInfo.weight},#{userInfo.birthday},#{userInfo.sportType},#{userInfo.level},#{userInfo.weiboNum},#{userInfo.qqNum},#{userInfo.leNum},#{userInfo.circleAuth},#{userInfo.province},#{userInfo.city},
+		#{userInfo.lng},#{userInfo.lat},#{userInfo.runDistance},#{userInfo.runTime},#{userInfo.runCount},#{userInfo.calorieSum},#{userInfo.totalStep},#{userInfo.lastLogTime},#{userInfo.createdDate},#{userInfo.deleteFlag})
+	</insert>
+	
+	<select id="login" parameterType="string"  resultType="UserInfo">
+		
+		
+		<!-- select ROWID userId,user_name userName,user_pwd userPwd from le_userinfo where USER_NAME=#{userName} and USER_PWD=#{userPwd}
+		 -->
+		<!-- liuyanqing gai -->
+		select ROWID userId,user_name userName,user_pwd userPwd,nick_name nickName,img_url imgURL,sex,email,phone_num phoneNum,height,weight,date_format(birthday,'%Y-%m-%d') as birthday,weibo_num weiboNum,qq_num qqNum,province,city,sport_type sportType,level,last_logtime lastLogTime,created_date createdDate  
+		from le_userinfo where (phone_num=#{userName} and USER_PWD=#{userPwd}) or (email=#{userName} and USER_PWD=#{userPwd})
+		 
+		
+	</select>
+	
+	<select id="getUserInfo" parameterType="String" resultType="UserInfo">
+		<!-- select ROWID userId,user_name userName,user_pwd userPwd,nick_name nickName,img_url imgURL,sex,email,phone_num phoneNum,height,weight,birthday,weibo_num weiboNum,qq_num qqNum,province,city,sport_type sportType,level,last_logtime lastLogTime,created_date createdDate 
+		from le_userinfo where user_name = #{userName} or ROWID=#{userName} -->
+		
+		select ROWID userId,user_name userName,user_pwd userPwd,nick_name nickName,img_url imgURL,sex,email,le_num leNum,phone_num phoneNum,height,weight,date_format(birthday,'%Y-%m-%d') as birthday,weibo_num weiboNum,qq_num qqNum,province,city,sport_type sportType,level,last_logtime lastLogTime,created_date createdDate 
+		from le_userinfo where ROWID=#{userName} or phone_num = #{userName} or email=#{userName}
+		
+		
+	</select>
+	
+	<select id="findUserIdByPhone" parameterType="string" resultType="string">
+		select ROWID userId from le_userinfo where PHONE_NUM=#{phoneNum}
+	</select>
+	
+	<select id="findUserIdByEmail" parameterType="string" resultType="string">
+		select ROWID userId from le_userinfo where EMAIL=#{email}
+	</select>
+	
+	<update id="setNewPassword" parameterType="string">
+		update le_userinfo set USER_PWD=#{userPwd} where ROWID=#{userId}
+	</update>
+	
+	<select id="checkUserIdAndUserPwd" parameterType="string" resultType="string">
+		select ROWID userId from le_userinfo where ROWID=#{userId} and USER_PWD=#{userPwd}
+	</select>
+	
+	<select id="checkUserNameAndUserPwd" parameterType="string" resultType="string">
+		select ROWID userId from le_userinfo where (phone_num=#{userName} or email=#{userName}) and USER_PWD=#{userPwd}
+	</select>
+	
+	<update id="updateUserPhone" parameterType="string">
+		update le_userinfo set PHONE_NUM=#{newUserPhone} where ROWID = #{userId}
+	</update>
+	
+	<update id="updateUserEmail" parameterType="string">
+		update le_userinfo set EMAIL=#{newUserEmail} where ROWID = #{userId}
+	</update>
+	
+	<update id="updateUserInfo" parameterType="UserInfo">
+		update le_userinfo set NICK_NAME=#{userInfo.nickName},IMG_URL=#{userInfo.imgURL},SEX=#{userInfo.sex},SPORT_TYPE=#{userInfo.sportType},
+		HEIGHT=#{userInfo.height},WEIGHT=#{userInfo.weight},BIRTHDAY=#{userInfo.birthday},PROVINCE=#{userInfo.province},CITY=#{userInfo.city}
+		where ROWID = #{userInfo.userId}
+	</update>
+	
+	<update id="updateUserQQNum" parameterType="string">
+		update le_userinfo set QQ_NUM=#{qqNum} where ROWID=#{userId}
+	</update>
+	
+	<update id="updateUserInfoFromPersonalCenter" parameterType="UserInfo" >
+		update le_userInfo set nick_name = #{nickName},sex = #{sex},phone_num = #{phoneNum},email = #{email},birthday = #{birthday},weibo_num = #{weiboNum},qq_num = #{qqNum},province = #{province},city = #{city} where rowid = #{userId}
+	</update>
+	
+	<update id="updateUserWeiboNum" parameterType="string">
+		update le_userinfo set WEIBO_NUM=#{weiboNum} where ROWID=#{userId}
+	</update>
+	
+	
+	<!-- 下面是对应Web端响应设置的映射，可以与APP端对应，只是后面统一加上Web进行修饰区别 -->
+	
+	<select id="loginWeb" parameterType="string" resultType="UserInfo">
+		select ROWID userId,user_name userName,user_pwd userPwd,nick_name nickName,img_url imgURL,sex,email,phone_num phoneNum,le_num leNum,height,weight,birthday,weibo_num weiboNum,qq_num qqNum,province,city,sport_type sportType,level,last_logtime lastLogTime,created_date createdDate  
+		from le_userinfo where (phone_num=#{userName} and USER_PWD=#{userPwd}) or (email=#{userName} and USER_PWD=#{userPwd})
+	</select>
+	
+
+
+	<!-- 获取UserInfo -->
+	<select id="getUserInfo_Name_NotNull" parameterType="String" resultType="UserInfo">
+		select rowid userId,nick_name nickName,sex,email,phone_num phoneNum,height,weight,birthday,weibo_num weiboNum,qq_num qqNum,province,city,sport_type sportType,level,last_logtime lastLogTime,created_date createdDate from le_userinfo where nick_name like "%"#{userName}"%"
+	</select>
+	
+	<select id="getUserInfo_Name_IsNull" resultType="UserInfo">
+		select rowid userId,nick_name nickName,sex,email,phone_num phoneNum,height,weight,birthday,weibo_num weiboNum,qq_num qqNum,province,city,sport_type sportType,level,last_logtime lastLogTime,created_date createdDate from le_userinfo where 1=1
+	</select>
+	
+	
+	<!--  另加 -->
+	<!-- 判断手机号是否存在 -->
+	<select id="isExistPhone" parameterType="String" resultType="int">
+		select count(*) from le_userinfo where phone_num=#{phone_num}
+	</select>
+	
+	<!-- 判断邮箱是否存在 -->
+	<select id="isExistEmail" parameterType="String" resultType="int">
+		select count(*) from le_userinfo where email=#{email}
+	</select>
+	
+	
+	<select id="isExistQQ" parameterType="string" resultType="string">
+		select ROWID from le_userinfo where QQ_NUM=#{qqNum}
+	</select>
+	
+	<select id="isExistWeibo" parameterType="string" resultType="string">
+		select ROWID userId from le_userinfo where WEIBO_NUM=#{weiboNum}
+	</select>
+	
+	<select id="isExistLeNum" parameterType="string" resultType="int">
+		select count(*) from le_userinfo where le_num=#{leNumTemp}
+	</select>
+	
+	
+	<update id="updateImgUrl" parameterType="string">
+		update le_userinfo set img_url = #{0} where rowid = #{1}
+	</update>
+	
+	<update id="updateQQNum" parameterType="string">
+		update le_userinfo set qq_num =#{0}  where rowid = #{1} 
+	</update>
+	
+	<update id="updateWeiBoNum" parameterType="string">
+		update le_userinfo set weibo_num =#{0}  where rowid = #{1} 
+	</update>
+	
+	
+	
+	
+	
+</mapper>

@@ -1,0 +1,366 @@
+.top-section-1 {
+	background: #414242 url(../img/lecourse_listbox1.jpg);
+}
+
+.top-section-2 {
+	background: #414242 url(../img/lecourse_listbox2.jpg);
+}
+
+.top-section-3 {
+	background: #414242 url(../img/lecourse_listbox1.jpg);
+}
+
+.top-section-4 {
+	background: #414242 url(../img/lecourse_listbox2.jpg);
+}
+
+.text-right-inner {
+	position: relative;
+}
+
+.text-right-inner p {
+	position: absolute;
+	bottom: 0.2px;
+	right: 24px;
+	top: auto;
+	cursor: pointer;
+}
+
+hr {
+	margin-top: 3em;
+	width: 100%;
+	border: 1px ridge;
+}
+
+
+/*nav*/
+
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.nav {
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.nav__list {
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+	margin-left: 80px;
+	height: 50px;
+	background: rgba(225, 153, 102, 0.8);
+	-webkit-transform: translate(-100%, 0);
+	-ms-transform: translate(-100%, 0);
+	transform: translate(-100%, 0); //
+	-webkit-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav__list--active {
+	-webkit-transform: translate(0, 0);
+	-ms-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+
+.nav_item {
+	margin-top: 10px;
+	text-align: center;
+	width: 100px;
+	rgba(225, 153, 102, 1);
+}
+
+.nav_item a {
+	text-decoration: none;
+	color: #FFFFCC;
+}
+
+.burger {
+	height: 50px;
+	width: 80px;
+	position: fixed;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	z-index: 2;
+	background: rgba(225, 153, 102, 0.6);
+	cursor: pointer;
+	-webkit-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.burger:hover {
+	background: rgba(225, 153, 102, 0.8);
+}
+
+.burger__patty {
+	position: relative;
+	height: 2px;
+	width: 40px;
+	background: white;
+}
+
+.burger__patty:before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: 0;
+	height: 2px;
+	width: 100%;
+	background: white;
+}
+
+.burger__patty:after {
+	content: "";
+	position: absolute;
+	top: 10px;
+	left: 0;
+	height: 2px;
+	width: 100%;
+	background: white;
+}
+
+.burger__patty,
+.burger__patty:before,
+.burger__patty:after {
+	will-change: transform;
+	-webkit-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.burger--active .burger__patty {
+	-webkit-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+.burger--active .burger__patty:before {
+	-webkit-transform: rotate(-45deg) translate(-7px, -7px) scaleX(0.7);
+	-ms-transform: rotate(-45deg) translate(-7px, -7px) scaleX(0.7);
+	transform: rotate(-45deg) translate(-7px, -7px) scaleX(0.7);
+}
+
+.burger--active .burger__patty:after {
+	-webkit-transform: rotate(45deg) translate(-7px, 7px) scaleX(0.7);
+	-ms-transform: rotate(45deg) translate(-7px, 7px) scaleX(0.7);
+	transform: rotate(45deg) translate(-7px, 7px) scaleX(0.7);
+}
+
+
+/*BMI工具*/
+
+.tool-section {
+	bottom: 10px;
+	/*background: #FFFFEE;*/
+	/*border-radius: 5px;
+	box-shadow: 3px 3px 3px  0px #AAAAAA;
+	-webkit-box-shadow: 3px 3px 3px 0px #AAAAAA;
+	-moz-box-shadow: 3px 3px 3px  0px #AAAAAA;*/
+}
+
+.tool-section .tool-title {
+	width: 100%;
+	background: #FF9900;
+	margin: 0 auto;
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	/* padding: 20px 30px; */
+}
+
+.tool-section .tool-title img {
+	padding: 0 10px;
+}
+
+.tool-section .tool-title h3 {
+	font-size: 20px;
+	color: #FFFFEE;
+	display: inline;
+	padding: 0 10px;
+}
+
+.tool-section .tool-content {
+	width: 100%;
+	background: #FFFFEE;
+	margin: 0 auto;
+	border: solid 3px #FF9900;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	-moz-border-radius-bottomright: 3px;
+	padding: 10px 30px;
+}
+
+.tool-section .tool-content .tool-block {
+	margin: 2em 0;
+	padding: 10px 10px;
+}
+
+.tool-section .tool-content .tool-border{
+	border-color: #FF9966;
+	border-width: 5px 3px;
+	border-style: solid double;
+}
+
+.tool-section .tool-content .tool-hr{
+	color: #FF9900;
+	box-shadow: 3px 3px 3px;
+	margin-top: 10px;
+}
+
+.tool-section .tool-content .tool-block img {
+	color: #666666;
+	font-size: 13px;
+	width: 20%;
+}
+
+.tool-section .tool-content .tool-block .input-answer{
+	width:90px;
+	background: transparent;
+	text-decoration: none;
+	border-bottom: 1px solid #005AA7;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	text-align: center;
+	color: #FF6666;
+}
+
+.tool-section .tool-content p {
+	color: #666666;
+	font-size: 15px;
+}
+
+.tool-section .tool-content .tool-subtitle{
+	background: #FF9966;
+	border-style: dotted;
+	border-color: #FFFFFF;
+	padding: 0px 10px;
+}
+
+.tool-section .tool-content .tool-subtitle h3{
+	font-size: 18px;
+}
+
+.tool-section .tool-content span,.tool-section .tool-content input{
+	margin-left: 4px;
+	color:#005aa7;
+	display: inline;
+}
+
+.tool-section .tool-content input{
+	width: 120px;
+	text-align: center;
+}
+
+.tool-section .tool-content .input-button{
+	width: 150px;
+	margin-left: 10px;
+	padding:5px 5px ;
+	text-align: center;
+	background: #99CC99;
+	border-color: #99CC99;
+	border-radius: 4px;
+	color: #FFFFFF;
+	border: none;
+}
+
+.tool-section .tool-content .table p{
+	font-size: 13px;
+}
+
+
+.tool-section .tool-content .table {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-size: 14px;
+	white-space: normal;
+	background: #99CC99;
+	border-color: #99CC99;
+	
+}
+
+.table th {
+	background: #FF9966;
+	margin: 0 2px;
+	word-break: break-all;
+	text-align: center;
+	width: 100px;
+	vertical-align: middle;
+}
+
+.table_tool td {
+	text-align: center;
+	margin: 0 2px;
+	word-break: break-all;
+	width: 100px;
+}
+
+.tool-sidebar{
+	top:50px;
+	position:relative;
+	width:80%;
+	height:220px;
+	text-align:left;
+	border:solid 3px #FF9966;
+	background:#FFFFEE;
+	border-radius:8px;
+}
+
+.tool-heading{
+	background:#FF9966;
+	color:#FFFFEE;
+	height:20%;
+	font-size:15px;
+	padding-top:10px;
+	padding-left:10px;
+}
+
+.tool-tabs{
+	border-radius:8px;
+	width:100%;
+	height:80%;
+	text-align:left;
+}
+
+.tool-tab{
+	width:100%;
+	height:25%;
+	padding:10px 10px;
+	border:dashed 1px #DDDDDD;
+}
+
+.tool-tab a{
+	text-decoration: none;
+	color:#99CC66;
+	font-weight: bolder;
+}

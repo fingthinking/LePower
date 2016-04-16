@@ -1,0 +1,347 @@
+/*nav*/
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.nav {
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.nav__list {
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+	margin-left: 80px;
+	height: 50px;
+	background: rgba(225, 153, 102, 0.8);
+	-webkit-transform: translate(-100%, 0);
+	-ms-transform: translate(-100%, 0);
+	transform: translate(-100%, 0); //
+	-webkit-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav__list--active {
+	-webkit-transform: translate(0, 0);
+	-ms-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+
+.nav_item {
+	margin-top: 10px;
+	text-align: center;
+	width: 100px;
+	rgba
+	(225,153,102,1);
+}
+
+.nav_item a {
+	text-decoration: none;
+	color: #FFFFCC;
+}
+
+.burger {
+	height: 50px;
+	width: 80px;
+	position: fixed;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	z-index: 2;
+	background: rgba(225, 153, 102, 0.6);
+	cursor: pointer;
+	-webkit-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.burger:hover {
+	background: rgba(225, 153, 102, 0.8);
+}
+
+.burger__patty {
+	position: relative;
+	height: 2px;
+	width: 40px;
+	background: white;
+}
+
+.burger__patty:before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: 0;
+	height: 2px;
+	width: 100%;
+	background: white;
+}
+
+.burger__patty:after {
+	content: "";
+	position: absolute;
+	top: 10px;
+	left: 0;
+	height: 2px;
+	width: 100%;
+	background: white;
+}
+
+.burger__patty, .burger__patty:before, .burger__patty:after {
+	will-change: transform;
+	-webkit-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.burger--active .burger__patty {
+	-webkit-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+.burger--active .burger__patty:before {
+	-webkit-transform: rotate(-45deg) translate(-7px, -7px) scaleX(0.7);
+	-ms-transform: rotate(-45deg) translate(-7px, -7px) scaleX(0.7);
+	transform: rotate(-45deg) translate(-7px, -7px) scaleX(0.7);
+}
+
+.burger--active .burger__patty:after {
+	-webkit-transform: rotate(45deg) translate(-7px, 7px) scaleX(0.7);
+	-ms-transform: rotate(45deg) translate(-7px, 7px) scaleX(0.7);
+	transform: rotate(45deg) translate(-7px, 7px) scaleX(0.7);
+}
+
+/*title-section*/
+.title-section {
+	width:100%;
+}
+
+.title-section h1 {
+	color: #FFCC99;
+}
+
+.panel-section {
+	background: #FFFF99;
+	padding: 30px 30px;
+}
+
+.icon_calendar {
+	position: relative;
+}
+
+.icon_calendar i {
+	position: absolute;
+	bottom: 10px;
+	right: 24px;
+	top: auto;
+	cursor: pointer;
+}
+
+/*home-section*/
+#home-section {
+	background:rgba(132,192,203,0.8);
+	margin: 3px 3px;
+	padding: 30px 30px;
+	min-height:600px;
+	width:100%;
+}
+
+/* #home-section .list-content {
+	border-top: solid 2px #FFFFCC;
+	padding-top: 4px;
+} */
+
+#home-section .list-content span {
+	color: #99CC99;
+	font-weight: bold;
+	padding: 30px;
+}
+
+#home-section .list-content input {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-color: transparent;
+	background: #FFFFCC;
+	width: 300px;
+}
+
+#home-section .date_analy {
+	padding-left: 30px;
+}
+
+#home-section .date_analy p {
+	padding-top:20px;
+	font-size: 20px;
+	color: #FFFFEE;
+}
+
+#home-section .date_analy strong {
+	font-size: 30px;
+	padding: 0px 10px;
+}
+
+#home-section .sport_chart .#step_chart, .sport_chart .#sum_cal {
+	width: 550px;
+	height: 400px;
+	margin: 0;
+	background: #FFFFCC;
+	background-size: cover;
+	margin: 0 auto;
+}
+
+#friendlist_section {
+	background: #FFFF99;
+	background-size: cover;
+	/* position:fixed;
+	bottom:0;
+	right:0; */
+}
+
+#friendlist_section .person-list {
+	background: #FF9966;
+	background-size: cover;
+	margin: 0px;
+	/* width:100%;
+	height:100%; */
+	width:200px;
+	height:260px;
+	position:fixed;
+	bottom:0;
+	right:0; 
+	border-style: dotted;
+	border-color: #FFCC99;
+	padding: 0px 10px;
+}
+
+#friendlist_section .person-list img {
+	/* vertical-align: middle; */
+	margin: 0 auto;
+	padding: 10%;
+	width: 100%;
+}
+
+#friendlist_section .person-list h1
+	{
+	font-size: 20px;
+	font-weight: 500;
+	text-align: center;
+	margin: 0 auto;
+}
+
+
+#friendlist_section .person-list p {
+	font-size: 15px;
+	text-align: center;
+	padding: 2%;
+}
+
+#friendlist_section .person-list strong {
+	font-size: 16px;
+	color: #FF6600;
+	font-weight: bold;
+}
+
+#friendlist_section .list-tab {
+	list-style: none;
+}
+
+#friendlist_section .friend-list{
+	margin:30px 0;
+	min-height:300px;
+}
+
+#friendlist_section .friend-list img {
+	vertical-align: middle;
+	margin: 0 auto;
+	padding: 10%;
+}
+
+#friendlist_section .friend-list h1 {
+	font-size: 20px;
+	font-weight: 500;
+	font: "宋体";
+	text-align: center;
+	margin: 0 auto;
+	padding-left: 10px;
+}
+
+
+#friendlist_section .friend-list p {
+	font-size: 10px;
+	text-align: left;
+	color: #FF6600;
+}
+
+#friendlist_section .friend-list strong {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+/*新增*/
+.top-hr{
+	color: #fff;
+	box-shadow: 3px 3px 3px;
+	margin-top: 10px;
+}
+
+#home-section .home-content{
+	width:100%;
+	height:100%;
+}
+
+/*2016/3/21*/
+#friendlist_section .friend-list .title-list{
+	padding:10px 10px;
+}
+
+#friendlist_section .friend-list .title-list h1{
+	border-color:#fff;
+	border-style:double;
+	border-width:3px;
+	padding:0 60px;
+	background:#85C1CC;
+}
+
+#friendlist_section .friend-list ul{
+	margin-bottom: 0;
+	margin: 0;
+	padding: 0;
+}
+
+#friendlist_section .friend-list ul li{
+    margin-top: -10px;
+    margin-bottom: -10px;
+	list-style-type: none;
+	width: 100%;
+}
+
+#friendlist_section .friend-list ul li img{
+	display: inline;
+	bottom: 10px;
+
+}
+
+#friendlist_section .friend-list ul li p{
+	display: inline;
+}

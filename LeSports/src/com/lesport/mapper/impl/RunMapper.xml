@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：必须与对应的接口全类名一致 id:必须与对应接口的某个对应的方法名一致 -->
+<mapper namespace="com.lesport.mapper.RunMapper">
+
+	<insert id="save" parameterType="UserRun">
+		insert into
+		le_user_run(rowid,user_id,second,distance,current_speed,average_speed,date,calorie,coordinate,created_date)
+		values(#{runId},#{userId},#{second},#{distance},#{currentSpeed},#{averageSpeed},#{date},#{calorie},#{coordinate},#{createdDate})
+	</insert>
+
+	<select id="findById"  resultType="UserRun">
+		select rowid runId, distance,second,current_speed currentSpeed,average_speed averageSpeed,calorie,date,coordinate from le_user_run 
+		<![CDATA[ where delete_flag='N' and user_id=#{userId} and date>=#{beginDate} and date<#{endDate}]]>
+	</select>
+	
+	<update id="delete" parameterType="String">
+		update le_user_run set delete_flag='Y' where rowid=#{runId}
+	</update>
+</mapper>

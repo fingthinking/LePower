@@ -1,0 +1,11 @@
+/*login-section*/
+.login-section{
+	background: #414242 url(../img/login_bg.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	min-height: 600px;
+	padding-top: 180px;
+	padding-bottom: 100px;
+	bottom: 60px;
+}

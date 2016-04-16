@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：必须与对应的接口全类名一致 id:必须与对应接口的某个对应的方法名一致 -->
+<mapper namespace="com.lesport.mapper.SitupMapper">
+
+	<insert id="save" parameterType="UserSitup">
+		insert into
+		le_user_situp(rowid,user_id,situp_count,calorie,start_time,end_time,date,created_date)
+		values(#{situpId},#{userId},#{situpCount},#{calorie},#{startTime},#{endTime},#{date},#{createdDate})
+	</insert>
+
+	<select id="findById" resultType="UserSitup">
+		select rowid situpId,user_id userId,date,
+		situp_count situpCount,calorie,start_time startTime,end_time endTime from le_user_situp
+		where delete_flag='N' and user_id=#{userId} and date=#{date}
+	</select>
+
+</mapper>

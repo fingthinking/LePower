@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：必须与对应的接口全类名一致 id:必须与对应接口的某个对应的方法名一致 -->
+<mapper namespace="com.lesport.mapper.ShowSportMapper">
+	<select id="showRun" resultType="SportTotal">
+		SELECT USER_ID AS userId,user_name AS userName,COUNT(*) AS sportCount,SUM(DISTANCE) AS sportDis,SUM(TIMESTAMPDIFF(MINUTE,start_time,end_time)) AS sportTime,SUM(CALORIE) AS sportCal FROM le_user_run,le_userinfo where user_id=le_userinfo.rowid  GROUP BY USER_ID
+	</select>
+	<select id="showWalk" resultType="SportTotal">
+		SELECT USER_ID AS userId,user_name AS userName,COUNT(*) AS sportCount,SUM(DISTANCE) AS sportDis,SUM(STEPS) AS sportSteps,SUM(second) AS sportTime,SUM(CALORIE) AS sportCal FROM le_user_walk,le_userinfo where user_id=le_userinfo.rowid GROUP BY USER_ID
+	</select>
+	<select id="showSitUp" resultType="SportTotal">
+		SELECT USER_ID AS userId,user_name AS userName,SUM(SITUP_COUNT) AS sportNum,COUNT(*) AS sportCount,SUM(CALORIE) AS sportCal FROM le_user_situp,le_userinfo WHERE user_id=le_userinfo.rowid  GROUP BY USER_ID
+	</select>
+	<select id="showPushUp" resultType="SportTotal">
+		SELECT USER_ID AS userId,user_name AS userName,SUM(PUSHUP_COUNT) AS sportNum,COUNT(*) AS sportCount,SUM(CALORIE) AS sportCal FROM le_user_pushup,le_userinfo WHERE user_id=le_userinfo.rowid  GROUP BY USER_ID
+	</select>
+	<select id="showJump" resultType="SportTotal">
+		SELECT USER_ID AS userId,user_name AS userName,SUM(JUMP_COUNT) AS sportNum,COUNT(*) AS sportCount,SUM(CALORIE) AS sportCal FROM le_user_jump,le_userinfo WHERE user_id=le_userinfo.rowid  GROUP BY USER_ID
+	</select>
+	<select id="showBicycle" resultType="SportTotal">
+		SELECT USER_ID AS userId,user_name AS userName,COUNT(*) AS sportCount,SUM(DISTANCE) AS sportDis,SUM(SECOND) AS sportTime,SUM(CALORIE) AS sportCal FROM le_user_bicycle,le_userinfo WHERE user_id=le_userinfo.rowid  GROUP BY USER_ID
+	</select>
+</mapper> 

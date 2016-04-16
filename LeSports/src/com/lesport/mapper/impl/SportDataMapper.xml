@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：必须与对应的接口全类名一致 id:必须与对应接口的某个对应的方法名一致 -->
+
+<mapper namespace="com.lesport.mapper.SportDataMapper">
+
+	<select id="getSportData" resultType="SportData">
+		select
+		e.date,e.runCal,e.walkCal,sum(f.calorie) bikeCal,e.runDis,e.walkDis,sum(f.distance)
+		bikeDis,e.runTime/3600 runTime,e.walkTime/3600
+		walkTime,sum(f.second)/3600 bikeTime from
+		(
+		select c.date,c.runCal,c.runDis,c.runTime,sum(d.calorie)
+		walkCal,sum(d.distance) walkDis,sum(d.second) walkTime from
+		(
+		select a.date,sum(b.calorie) runCal,sum(b.distance) runDis,sum(b.second)
+		runTime from
+		(select date from le_sport_temp where date between #{beginDate} and
+		#{endDate}) a
+		left join
+		(select date,calorie,distance,second from le_user_run
+		where delete_flag='N' and user_id=#{userId} and date between #{beginDate}
+		and #{endDate}
+		) b
+		on a.date=b.date
+		group by a.date
+		)c
+		left join
+		(select date,calorie,distance,second from le_user_walk
+		where delete_flag='N' and user_id=#{userId} and date between #{beginDate}
+		and #{endDate}
+		) d
+		on c.date=d.date
+		group by c.date
+		)e
+		left join
+		(select date,calorie,distance,second from le_user_bicycle
+		where delete_flag='N' and user_id=#{userId} and date between #{beginDate}
+		and #{endDate}
+		)f
+		on e.date=f.date
+		group by e.date
+	</select>
+
+	<select id="getRunDis" parameterType="String" resultType="UserInfo">
+	select b.nickName,b.userName,b.imgURL,c.distance runDistance from
+		(
+		select a.rowid,a.nick_name nickName,a.user_name userName,a.img_url imgURL
+		from le_userinfo a
+		where a.rowid=#{userId}
+		)b
+		left join
+		(
+		select user_id,sum(distance) distance from le_user_run
+		where delete_flag='N' and user_id=#{userId} and date=#{date}
+		)c
+		on b.rowid=c.user_id
+	</select>
+
+	<select id="getRunRange" parameterType="String" resultType="UserInfo">
+		select a.nick_name nickName,a.user_name userName,a.img_url
+		imgURL,b.distance runDistance
+		from le_userinfo a,
+		(
+		select user_id ,sum(distance) distance from le_user_run
+		where delete_flag='N' and date=#{date}
+		group by user_id
+		order by distance desc
+		limit 10
+		)b
+		where a.rowid=b.user_id
+	</select>
+</mapper> 

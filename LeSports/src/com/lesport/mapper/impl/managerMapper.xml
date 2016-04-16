@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 
+	namespace：必须与对应的接口全类名一致
+	id:必须与对应接口的某个对应的方法名一致	
+ -->
+ 
+ 
+<mapper namespace="com.lesport.mapper.ManagerMapper">
+	<select id="findManagerById" parameterType="String" resultType="Manager">
+		select manager_name managerName,manager_pwd managerPwd,authority,created_date createdDate,last_LogTime lastLogTime,delete_Flag  deleteFlag from le_manager where rowid = #{managerId} and delete_Flag = "N"
+	</select>
+	<select id="findAllManager" resultType="Manager">
+		<!-- select manager_name,manager_pwd,authority,created_date,last_LogTime,delete_Flag from le_manager -->
+		select rowid managerId,manager_name managerName,manager_pwd managerPwd,authority,created_date createdDate,last_LogTime lastLogTime,delete_Flag  delete_Flag from le_manager where delete_Flag = "N"
+	</select>
+	<insert id="insertManager" parameterType="Manager">
+		insert into le_manager(rowid,manager_name,manager_pwd,created_date) values(#{managerId},#{managerName},#{managerPwd},#{createdDate})
+	</insert>
+	<delete id="deleteManager" parameterType="int">
+		<!-- delete from le_manager where rowid=#{managerId} -->
+		update le_manager set delete_Flag = "Y" where rowid = #{managerId}
+	</delete>
+	<update id="updateManager" parameterType="Manager">
+		update le_manager set manager_name = #{managerName},manager_pwd = #{managerPwd} where rowid = #{managerId}
+	</update>
+</mapper>

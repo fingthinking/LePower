@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- 实体类,简称 -设置别名 -->
+	<typeAliases>
+
+		<typeAlias alias="User" type="com.lesport.model.User" />
+		<typeAlias alias="UserInfo" type="com.lesport.model.UserInfo" />
+		<typeAlias alias="UserInfo2" type="com.lesport.model.UserInfo2" />
+		<typeAlias alias="Circle" type="com.lesport.model.Circle" />
+		<typeAlias alias="UserRun" type="com.lesport.model.UserRun" />
+		<typeAlias alias="CirLike" type="com.lesport.model.CirLike" />
+		<typeAlias alias="CircleDetail" type="com.lesport.model.CircleDetail" />
+		<typeAlias alias="Comment" type="com.lesport.model.Comment" />
+		<typeAlias alias="CommentLike" type="com.lesport.model.CommentLike" />
+		<typeAlias alias="News" type="com.lesport.model.News" />
+		<typeAlias alias="RecordCommentAndLike" type="com.lesport.model.RecordCommentAndLike" />
+		<typeAlias alias="ManageCircle" type="com.lesport.model.ManageCircle" />
+		<typeAlias alias="Manager" type="com.lesport.model.Manager" />
+		<typeAlias alias="UserWalk" type="com.lesport.model.UserWalk" />
+		<typeAlias alias="ComAndLike" type="com.lesport.model.ComAndLike" />
+		<typeAlias alias="UserFriend" type="com.lesport.model.UserFriend" />
+		<typeAlias alias="Friendsreturn" type="com.lesport.model.Friendsreturn" />
+		<typeAlias alias="UserBicycle" type="com.lesport.model.UserBicycle" />
+		<typeAlias alias="SportData" type="com.lesport.model.SportData" />
+		<typeAlias alias="UserPushup" type="com.lesport.model.UserPushup" />
+		<typeAlias alias="UserJump" type="com.lesport.model.UserJump" />
+		<typeAlias alias="UserSitup" type="com.lesport.model.UserSitup" />
+		<typeAlias alias="SportTotal" type="com.lesport.model.SportTotal" />
+	</typeAliases>
+	<!-- 实体接口映射资源 -->
+	<!-- 说明：如果xxMapper.xml配置文件放在和xxMapper.java统一目录下，mappers也可以省略，因为org.mybatis.spring.mapper.MapperFactoryBean默认会去查找与xxMapper.java相同目录和名称的xxMapper.xml -->
+	<mappers>
+		<mapper resource="com/lesport/mapper/impl/userMapper.xml" />
+		<mapper resource="com/lesport/mapper/impl/circleMapper.xml" />
+		<mapper resource="com/lesport/mapper/impl/UserInfoMapperImpl.xml" />
+		<mapper resource="com/lesport/mapper/impl/RunMapper.xml" />
+		<mapper resource="com/lesport/mapper/impl/SysManageMapper.xml"/>
+		<mapper resource="com/lesport/mapper/impl/managerMapper.xml"/>
+		<mapper resource="com/lesport/mapper/impl/newsMapper.xml"/>
+		<mapper resource="com/lesport/mapper/impl/WalkMapper.xml"/>
+		<mapper resource="com/lesport/mapper/impl/ComAndLikeMapper.xml"/>
+		<mapper resource="com/lesport/mapper/impl/UserFriendMapperImpl.xml"/>
+		<mapper resource="com/lesport/mapper/impl/BicycleMapper.xml"/>
+		<!--  <mapper resource="com/lesport/mapper/impl/SportDataMapper.xml"/>-->
+		<!-- <mapper resource="com/lesport/mapper/impl/circleMapper2.xml"/> -->
+
+		<mapper resource="com/lesport/mapper/impl/SysManageMapper.xml" />
+		<mapper resource="com/lesport/mapper/impl/managerMapper.xml" />
+		<mapper resource="com/lesport/mapper/impl/newsMapper.xml" />
+		<mapper resource="com/lesport/mapper/impl/WalkMapper.xml" />
+		<mapper resource="com/lesport/mapper/impl/ComAndLikeMapper.xml" />
+		<mapper resource="com/lesport/mapper/impl/UserFriendMapperImpl.xml" />
+		<mapper resource="com/lesport/mapper/impl/BicycleMapper.xml" />
+		<mapper resource="com/lesport/mapper/impl/SportDataMapper.xml" />
+		<mapper resource="com/lesport/mapper/impl/PushupMapper.xml" />
+		<mapper resource="com/lesport/mapper/impl/JumpMapper.xml" />
+		<mapper resource="com/lesport/mapper/impl/SitupMapper.xml" />
+		<mapper resource="com/lesport/mapper/impl/ShowSportMapper.xml" />
+		<mapper resource="com/lesport/mapper/impl/SportTotalMapper.xml" />
+		<mapper resource="com/lesport/mapper/impl/CircleManageMapper.xml" />
+	</mappers>
+</configuration>  

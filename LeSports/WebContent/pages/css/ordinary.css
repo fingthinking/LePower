@@ -1,0 +1,235 @@
+body {
+	font-family: SourceHanSansLight, "微软雅黑", sans-serif;
+	background: #FFCC99;
+	/* background: -moz-linear-gradient(center, #FFCC99, #FFFFCC);
+	background: -webkit-gradient(linear, 50% 50%, 50% 50%, from(#FFCC99),
+		to(#FFFFCC)); */
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: 0;
+}
+
+/*
+ * 導航使用橘色深 #FF9966
+ * 标题一律使用#FFCC99 橘色
+ * 背景为#FFFF99 肉色
+ * 字使用#99CC99 蓝 #336699深點藍 #336666暗點深藍
+ * 焦点使用 #FF9900橘黄色 #FF6600深橘黄色
+ * 上下左右不留白
+ * 内容上下左右留3px
+ * id统一用英文字母加下划线，user_id
+ * .class统一用英文字母加短横线 title-section
+ * 
+ * 
+ */
+h1，h2，h3，h4 {
+	color: #EEEEEE;
+	font-weight: bolder;
+	text-align: center;
+}
+
+a {
+	font-size: 15px;
+}
+
+p {
+	color: #EEEEEE;
+}
+
+/*header-title*/
+.header {
+	background-size: cover;
+	background-position: center;
+	text-align: left;
+	width: 100%;
+	/*padding-top: 180px;
+	padding-bottom: 100px;*/
+}
+
+.header h1 {
+	font-size: 50px;
+	padding-top: 50px;
+	text-align: center;
+	color: #FEE497;
+}
+
+.header h3 {
+	line-height: 30px;
+	font-size: 20px;
+	text-align: center;
+	padding-bottom: 5px;
+	color: #606CB7;
+}
+
+/* navigation */
+.navbar-default {
+	background-color: #FF9966;
+	opacity: 0.8;
+	border: none;
+	padding-right: 40px;
+	margin: 0;
+	padding: 0px;
+	position: absolute;
+	top: 20px;
+}
+
+.navbar-default .navbar-brand {
+	font-size: 40px;
+	line-height: 40px;
+	padding-top: 4px;
+}
+
+.navbar-default .navbar-nav li a {
+	color: #f2f2f2;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 30px;
+	transition: all 0.4s ease-in;
+}
+
+.navbar-default .navbar-toggle {
+	background: #;
+	border-radius: 0px;
+	border: none;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background: #fff;
+	border-color: transparent;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus
+	{
+	background-color: transparent
+}
+
+.active {
+	background: #333;
+}
+
+/*新增，二级浮动菜单*/
+#toolbar {
+	height: 60px;
+	width: 150px;
+	position: relative;
+	margin: 0 10px;
+	padding: 15px 0;
+	/*background: #FFFFFF;*/
+	/*background-size: cover;*/
+}
+
+#toolbar ul {
+	/*二级菜单框*/
+	/*margin: 0 0 0 30px;*/
+	/*padding-top: 10px;*/
+	bottom: 0px;
+	/*font-size: 12px;*/
+	background: #FFCC66;
+	
+	/*line-height: 30px;*/
+	margin: 0;
+	padding: 0;
+	height: 150px;
+	width: 100%;
+	position: relative;
+}
+
+#toolbar li {
+	/*username*/
+	width: 100%;
+	height:30%;
+	list-style-type: none;
+	display: inline;
+}
+
+#toolbar li a {
+	/*username -a*/
+	text-decoration: none;
+	text-align: center;
+	margin:0 auto;
+	padding-bottom:10px;
+}
+
+#toolbar ul li {
+	float: left;
+	width: 100%;
+	height: 50px;
+	padding-top: 20px;
+	padding-left: 10px;
+	display: block;
+	list-style-type: none;
+	position: relative;
+	line-height: 25px;
+}
+
+#toolbar ul li:hover {
+	background: #FF9900;
+	/*box-shadow: #DDDDDD;*/
+}
+
+#toolbar ul li a {
+	display: block;
+	line-height: 24px;
+	font-size: 15px;
+	text-align: center;
+	text-decoration: none;
+}
+
+#toolbar li a:hover {
+	color: #333;
+}
+
+#toolbar .navbar-link {
+	width: 50%;
+	display: inline;
+}
+
+/*新增*/
+.title-section .sport-background{
+	overflow:visible;
+	width:100%;
+	height:250px;
+	background:url(../img/mySport_title.png) 50% 50% no-repeat;
+	background-size:cover;
+	position:relative;
+}
+
+.title-section .friend-background{
+	overflow:visible;
+	width:100%;
+	height:250px;
+	background:url(../img/friendcircle_title.png) 50% 50% no-repeat;
+	background-size:cover;
+	position:relative;
+}
+
+.title-section .lecourse-background{
+	overflow:visible;
+	width:100%;
+	height:250px;
+	background:url(../img/lecourse_title.jpg) 50% 50% no-repeat;
+	background-size:cover;
+	position:relative;
+}
+
+.title-section .font{
+	margin:100px auto 0;
+	width:700px;
+}
+
+/*新增导航栏右侧username*/
+.title-section .title-user{
+	margin-top:0px;
+}
+
+.title-section .title-user a{
+	 text-decoration:none;
+	 outline:none;
+	/*  border-color:#FFFFEE;
+	 border-style:double;
+	 border-width:3px;
+	 vertical-align:middle; */
+}
+

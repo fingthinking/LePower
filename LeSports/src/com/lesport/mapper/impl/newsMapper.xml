@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 
+	namespace：必须与对应的接口全类名一致
+	id:必须与对应接口的某个对应的方法名一致	
+ -->
+ 
+ 
+<mapper namespace="com.lesport.mapper.NewsMapper">
+	<!--<insert id="addNews" parameterType="News">
+		 insert into le_news(rowid,title,pic_url,content,start_time,end_time,created_date) values(#{0}, #{1},#{2},#{3},#{4},#{5},#{6})
+	</insert> -->
+	<insert id="addNews" parameterType="News" >
+		 insert into le_news (rowid,title,pic_url,content,start_time,end_time,created_date) values(#{newsId},#{title},#{picUrl},#{content},#{startTime},#{endTime},#{createdDate})
+	</insert>	
+	<select id="getHealthyInfo" parameterType="String" resultType="News">
+		select rowid as newsId,title as title,pic_url as picUrl,content as content,start_time as startTime,end_time as endTime,created_date as createdDate from le_news where rowid = #{newsId} and delete_flag='N'
+	</select>
+	<update id="updateNews" parameterType="News">
+		update le_news set title = #{title},content = #{content},start_time =#{startTime},end_time=#{endTime},pic_url=#{picUrl},created_date=#{createdDate} where rowid = #{newsId} and delete_flag='N'
+	</update>
+		<select id="findAllNews"  resultType="News">
+		select rowid as newsId,title as title,pic_url as picUrl,substring(content,1,50) as content,start_time startTime,end_time as endTime,created_date as createdDate,delete_flag as deleteFlag from le_news where delete_flag='N'
+	</select>
+	<select id="getNews" parameterType="String" resultType="News">
+		SELECT rowid AS newsId,title AS title,substring(content,1,50) AS content,start_time AS startTime,end_time AS endTime,pic_url AS picUrl,created_date AS createdDate,delete_flag AS deleteFlag FROM le_news 
+		WHERE DELETE_FLAG='N'
+		<if test="startTime != null and startTime !=''">  
+  		AND DATEDIFF(DATE_ADD(start_time,INTERVAL 0 DAY),DATE_ADD(#{startTime},INTERVAL 0 DAY))>=0 
+		</if>
+		<if test="endTime != null and endTime!=''"> 
+		  AND DATEDIFF(DATE_ADD(#{endTime},INTERVAL 0 DAY),DATE_ADD(end_time,INTERVAL 0 DAY))>=0   	
+		 </if>
+	</select>
+	<update id="deleteNews" parameterType="String">
+		update le_news set delete_flag='Y' where rowid=#{newsId}
+	</update>
+
+</mapper>

@@ -1,0 +1,138 @@
+/*login-section*/
+
+body {
+	font-family: SourceHanSansLight, "微软雅黑", sans-serif;
+	background: #414242 url(../img/login_bg.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	/*min-height: 600px;*/
+	padding-top: 180px;
+	padding-bottom: 100px;
+	bottom: 60px;
+}
+
+h1，h2，h3，h4 {
+	color: #EEEEEE;
+	font-weight: bolder;
+	text-align: center;
+}
+
+a {
+	font-size: 15px;
+}
+
+p {
+	color: #EEEEEE;
+}
+
+
+/*header-title*/
+.header {
+	background-size: cover;
+	background-position: center;
+	height: 200px;
+	text-align: left;
+	width: 100%;
+	/*padding-top: 180px;
+	padding-bottom: 100px;*/
+}
+
+.header h1 {
+	font-size: 50px;
+	padding-top: 50px;
+	text-align: center;
+	color: #FEE497;
+}
+
+.header h3 {
+	line-height: 30px;
+	font-size: 20px;
+	text-align: center;
+	padding-bottom: 5px;
+	color: #606CB7;
+}
+
+
+/* navigation */
+
+.navbar-default {
+	background-color: #FF9966;
+	opacity: 0.8;
+	border: none;
+	padding-right: 40px;
+	margin: 0;
+	padding: 0px;
+	position: absolute;
+	top: 20px;
+}
+
+.navbar-default .navbar-brand {
+	font-size: 40px;
+	line-height: 40px;
+	padding-top: 4px;
+}
+
+.navbar-default .navbar-nav li a {
+	color: #f2f2f2;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 30px;
+	transition: all 0.4s ease-in;
+}
+
+.navbar-default .navbar-toggle {
+	background: #;
+	border-radius: 0px;
+	border: none;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background: #fff;
+	border-color: transparent;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+	background-color: transparent
+}
+
+.active {
+	background: #333;
+}
+
+
+/*login-section*/
+
+.login-section {
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 4px;
+	height: 400px;
+	padding: 10px 20px;
+}
+
+.login-form {
+	height: 420px;
+	padding: 10px 10px;
+}
+
+.btn-submit{
+	margin: 0 auto;
+}
+
+.login-bg {
+	min-height: 800px;
+	height: 100%;
+}
+
+#safe .form-control{
+	width: 100%;
+}
+
+#loginForm h4{
+	font-size: 14px;
+	font-family: "黑体";
+	color: #333333;
+}

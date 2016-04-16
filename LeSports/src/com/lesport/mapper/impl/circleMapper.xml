@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 	namespace：必须与对应的接口全类名一致  id:必须与对应接口的某个对应的方法名一致	 --> 
+ 
+<mapper namespace="com.lesport.mapper.CircleMapper">
+	
+	<!--乐友圈 接口1 sql语句 开始 -->
+	<select id="getFriendCircle" parameterType="string" resultMap="circleMap">		 		
+		   select user_id, user_name, nick_name,img_url, d.rowid, content, pic_url,publish_date,publish_addr,scope_flag scopeFlag  
+		 	from (select friend_id,user_name,nick_name,img_url 
+								from (select friend_id from le_user_friend where user_id= #{0} and delete_flag = "N" 
+									  UNION  select rowid from le_userinfo where rowid = #{0} ) a 
+									  left join le_userinfo b on a.friend_id=b.rowid) c  
+		 	join le_circle d on c.friend_id=d.user_id where d.delete_flag = "N" order by publish_date desc		 
+		 	limit #{1},#{2}	 	
+	</select>
+	
+	<resultMap id="circleMap" type="Circle">
+		<id property="circleId" column="rowid"></id>		
+		<result property="userId" column="user_id"></result>
+		<result property="userName" column="user_name"></result>
+		<result property="nickName" column="nick_name"></result>
+		<result property="imgUrl" column="img_url"></result>
+		<result property="content" column="content"></result>
+		<result property="picUrl" column="pic_url"></result>
+		<result property="publishDate" column="publish_date"></result>
+		<result property="publishAddr" column="publish_addr"></result>
+		<collection property="cirLikes" ofType="CirLike" column="rowid" select="getCirLike" ></collection>
+		<collection property="comments" ofType="Comment" column="rowid" select="getComment" ></collection>
+	</resultMap>
+	
+	<select id="getCirLike" parameterType="string" resultType="CirLike">		
+		select a.rowid cirLikeId,like_uid likeUId, user_name likeUserName, nick_name likeNickName,circle_id circleId, a.created_date  createDate
+			from le_cir_like a left join le_userinfo b on a.like_uid = b.rowid where circle_id=#{rowid} and a.delete_flag="N"
+	</select>		
+	
+	<select id="getComment" parameterType="string" resultMap="commentMap">
+		select a.rowid, circle_id,comment_uid, user_name, nick_name,content,comment_time,reply_uid, img_url 
+			from (select rowid,circle_id,comment_uid,content,comment_time,reply_uid from le_cir_comment where circle_id=#{rowid}  and delete_flag="N") a  
+				left join le_userinfo b on a.comment_uid=b.rowid order by comment_time asc
+	</select>	
+	
+	<resultMap id="commentMap" type="Comment">
+		<id property="commentId" column="rowid"></id>
+		<result property="circleId" column="circle_id"></result>
+		<result property="commentUId" column="comment_uid"></result>
+		<result property="content" column="content"></result>
+		<result property="commentTime" column="comment_time"></result>
+		<result property="replyUId" column="reply_uid"></result>
+		<result property="commentUserName" column="user_name"></result>
+		<result property="commentNickName" column="nick_name"></result>
+		<result property="commentImgUrl" column="img_url"></result>
+		<!-- <association property="commentUserName" column="comment_uid" javaType="string" select="getCommentUserName"></association> -->
+		<association property="replyUserName" column="reply_uid" javaType="string" select="getReplyUserName"></association>
+		<association property="replyNickName" column="reply_uid" javaType="string" select="getReplyNickName"></association>
+	</resultMap>	
+	
+	<select id="getReplyUserName" parameterType="string" resultType="string">
+		select user_name replyUserName  from le_userinfo where rowid=#{reply_uid}
+	</select> 
+	
+	<select id="getReplyNickName" parameterType="string" resultType="string">
+		select nick_name replyNickName from le_userinfo where rowid=#{reply_uid}
+	</select> 	
+	
+	<!--乐友圈 接口1 sql语句 结束 -->
+	
+	
+	<!--乐友圈 接口2 sql语句 开始 -->
+	<select id="getCircleDetail" parameterType="string" resultMap="circleMap">				
+		select  a.rowid , user_id, user_name,nick_name, img_url, content, pic_url,publish_date, publish_addr, scope_flag scopeFlag  
+			from (select rowid ,user_id ,content, pic_url,publish_date, publish_addr,scope_flag from le_circle where rowid=#{circleId}  and delete_flag="N") a 
+			left join le_userinfo b on a.user_id=b.rowid		
+	</select>
+	<!-- circleMap由上面相应部分实现 -->
+	<!--乐友圈 接口2 sql语句 结束 -->
+	
+	
+	<!--乐友圈 接口3 sql语句 开始 -->
+	<select id="getMyCircle" parameterType="string" resultMap="circleMap">	
+		select user_id, user_name, nick_name, img_url, b.rowid, pic_url, content, publish_date,publish_addr,scope_flag scopeFlag 
+			from  (select rowid,user_name,nick_name,img_url from le_userinfo where rowid=#{0}) a 
+			left join le_circle b on a.rowid=b.user_id  where  b.delete_flag="N" order by publish_date desc	
+			limit #{1},#{2}	
+	</select>
+	
+	<!--乐友圈 接口3 sql语句 结束 -->
+	
+	<!--乐友圈 接口4 sql语句 开始 -->
+	<insert id="addCircle" parameterType="Circle" >
+		insert into le_circle(rowid,user_id,content,pic_url,publish_date,publish_addr,scope_flag,created_date) 
+			values(#{circleId},#{userId},#{content},#{picUrl},#{publishDate},#{publishAddr},#{scopeFlag},#{createDate})
+	</insert>
+	<!--乐友圈 接口4 sql语句 结束 -->
+	
+	
+	<!--乐友圈 接口5 sql语句 开始 -->
+	<insert id="addComment" parameterType="Comment" >
+		insert into le_cir_comment(rowid,circle_id,comment_uid,content,comment_time,reply_uid,created_date) 
+			values(#{commentId},#{circleId},#{commentUId},#{content},#{commentTime},#{replyUId},#{createDate})
+	</insert>
+	<!--乐友圈 接口5 sql语句 结束 -->
+	
+	<!-- addRecordCommentAndLike sql语句 开始 -->
+	<insert id="addRecordCommentAndLike" parameterType="RecordCommentAndLike" >
+		insert into le_record_commentandlike(rowid,circle_id,comment_id,publisher_id,content,publish_date,user_id) 
+			values(#{recordCommentAndLikeId},#{circleId},#{commentId},#{publisherId},#{content},#{publishDate},#{ownerId})
+	</insert>
+	<!-- addRecordCommentAndLike sql语句 结束 -->
+	
+	<!-- 乐友圈 接口10 sql语句 开始 -->
+	<select id="getCountOfComAndLike" parameterType="string" resultType="int" >
+		select  count(*) countOfNew from le_record_commentandlike where publisher_id = #{userId} and delete_flag = "N"
+	</select>
+	<!-- 乐友圈 接口10 sql语句 结束 -->
+	
+	
+	
+	<!-- 获取某个userId所有的动态数量 sql语句 开始 -->
+	<select id="getCountOfAllcircle" parameterType="string" resultType="int" >
+		select  count(*) countOfCircle from le_circle where user_id = #{userId} and delete_flag = "N"
+	</select>
+	<!-- 获取某个userId所有的动态数量 sql语句 结束 -->
+	
+	<!-- 获取某个userId本人及好友所有的动态数量 sql语句 开始 -->
+	<select id="getCountOfMineAndFriend" parameterType="string" resultType="int" >
+		select count(*) from le_circle where user_id in(select friend_id from le_user_friend where user_id= #{userId} and delete_flag = "N" 
+									  UNION  select rowid from le_userinfo where rowid = #{userId} ) and delete_flag="N"
+	</select>
+	<!-- 获取某个userId本人及好友所有的动态数量 sql语句 结束 -->
+	
+	
+	
+	
+	
+	
+	<!-- ============================================================================================= -->
+	<!-- ============================================以下部分为刘亚中所写================================ -->
+	<!-- ============================================================================================= -->
+	
+	
+	<!-- 获取要转发的动态 -->
+	<select id="getToDispathSurge" parameterType="string" resultType="Circle">
+		select rowid as circleId,user_id as userId,pic_url as picUrl,content as content,publish_date as publishDate,publish_addr as publishAddr,scope_flag as scopeFlag,created_date as createDate,delete_flag as deleteFlag from le_circle where rowid=#{circleId}
+	</select>
+	<!-- 保存转发动态 -->
+	<insert id="saveDispathSurge" parameterType="Circle">
+		insert into le_circle(rowid,user_id,pic_url,content,publish_date,publish_addr,scope_flag,created_date,delete_flag) values(#{circleId}, #{userId}, #{picUrl}, #{content}, #{publishDate}, #{publishAddr}, #{scopeFlag}, #{createDate}, #{deleteFlag})
+	</insert>
+	<!-- 取消点赞 -->
+	<update id="deletePraise">
+		update le_cir_like a,le_record_commentandlike b set a.delete_flag='Y',b.delete_flag='Y' where a.circle_id=#{circleId} and a.like_uid=#{userId} and a.circle_id=b.circle_id and a.like_uid=b.publisher_id
+	</update>
+	<!-- 删除评论 -->
+	<update id="deleteComment">
+		update le_cir_comment a,le_record_commentandlike b set a.delete_flag='Y',b.delete_flag='Y' where a.rowid=#{commentId} and a.rowid=b.comment_id
+	</update>
+	<!-- 删除动态 -->
+	<update id="deleteCircle" statementType="CALLABLE">
+      CALL flag(#{circleId,mode=IN,jdbcType=VARCHAR})
+	</update>
+	<!-- 点赞 -->
+	<insert id="addLike">
+		insert into le_cir_like(rowid,circle_id,like_uid,created_date,delete_flag) values(#{cirLikeId},#{circleId},#{likeUId},#{createDate},'N')
+	</insert>
+	<!-- 保存到新评论和点赞表中 -->
+	<insert id="addPraiseRemind">
+		insert into le_record_commentandlike(rowid,circle_id,publisher_id,publish_date,user_id) values(#{rowId},#{circleId},#{userId},#{publishDate},#{ownerId})
+	</insert>
+	<!-- 获取新评论和点赞 -->
+	<select id="getContentOfCirAndLike" resultType="CommentLike">
+		SELECT circle_id AS circleId ,USER_NAME AS userName,CONTENT AS content,PUBLISH_DATE AS publishTime FROM le_userinfo a,le_record_commentandlike b WHERE a.rowid=#{userId} AND b.user_id=a.rowid AND b.`DELETE_FLAG`='N'
+	</select>
+	<update id="setSawFlag">
+	update le_record_commentandlike set delete_flag='Y' where user_id=#{userId}
+	</update>
+</mapper>

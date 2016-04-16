@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：必须与对应的接口全类名一致 id:必须与对应接口的某个对应的方法名一致 -->
+<mapper namespace="com.lesport.mapper.PushupMapper">
+
+	<insert id="save" parameterType="UserPushup">
+		insert into
+		le_user_pushup(rowid,user_id,pushup_count,calorie,order_id,date,created_date)
+		values(#{pushupId},#{userId},#{pushupCount},#{calorie},#{orderId},#{date},#{createdDate})
+	</insert>
+
+	<select id="findById" resultType="UserPushup">
+		select rowid pushupId,user_id userId,
+		pushup_count pushupCount,calorie,order_id orderId from le_user_pushup
+		where delete_flag='N' and user_id=#{userId} and date=#{date}
+	</select>
+</mapper>

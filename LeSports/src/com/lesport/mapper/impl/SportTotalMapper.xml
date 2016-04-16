@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：必须与对应的接口全类名一致 id:必须与对应接口的某个对应的方法名一致 -->
+<mapper namespace="com.lesport.mapper.SportTotalMapper">
+
+	<select id="getRunInfo" resultType="SportTotal">
+		select 'run' as type,count(rowid) sportCount,sum(distance)
+		sportDis,sum(second) sportTime,sum(calorie) sportCal from le_user_run
+		where delete_flag='N' and user_id=#{userId}
+	</select>
+
+	<select id="getWalkInfo" resultType="SportTotal">
+		select 'walk' as type,count(rowid) sportCount,sum(a.steps)
+		sportSteps,sum(a.distance) sportDis,sum(a.second)
+		sportTime,sum(a.calorie) sportCal from le_user_walk a
+		where delete_flag='N' and user_id=#{userId}
+	</select>
+
+	<select id="getBikeInfo" resultType="SportTotal">
+		select 'bike' as type,count(rowid) sportCount,sum(a.distance)
+		sportDis,sum(a.second) sportTime,sum(a.calorie) sportCal from
+		le_user_bicycle a
+		where delete_flag='N' and user_id=#{userId}
+	</select>
+
+	<select id="getPushupInfo" resultType="SportTotal">
+		select 'pushup' as type,count(rowid) sportCount,sum(a.pushup_count)
+		sportNum,sum(a.calorie) sportCal from le_user_pushup a
+		where delete_flag='N' and user_id=#{userId}
+	</select>
+
+	<select id="getJumpInfo" resultType="SportTotal">
+		select 'jump' as type,count(rowid) sportCount,sum(a.jump_count)
+		sportNum,sum(a.calorie) sportCal from le_user_jump a
+		where delete_flag='N' and user_id=#{userId}
+	</select>
+
+	<select id="getSitupInfo" resultType="SportTotal">
+		select 'situp' as type,count(rowid) sportCount,sum(a.situp_count)
+		sportNum,sum(a.calorie) sportCal from le_user_situp a
+		where delete_flag='N' and user_id=#{userId}
+	</select>
+
+</mapper>

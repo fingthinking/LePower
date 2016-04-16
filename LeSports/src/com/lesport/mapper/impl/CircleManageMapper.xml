@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 	namespace：必须与对应的接口全类名一致  id:必须与对应接口的某个对应的方法名一致	 --> 
+ 
+<mapper namespace="com.lesport.mapper.CircleManageMapper">
+	
+	<select id="getCircleList" parameterType="string" resultType="Circle">		 		
+		select a.rowid circleId,b.nick_name nickName,a.content,a.publish_date publishDate,a.publish_addr publishAddr from le_circle a,le_userinfo b
+		where a.delete_flag='N' and a.user_id = b.rowid
+		<if test="nickName != null and nickName !=''"> 
+		and b.nick_name like "%"#{nickName}"%"
+		</if>
+		order by publish_date desc		 
+		limit #{offset},#{pageSizeInt}	 	
+	</select>
+
+	<select id="getCountOfCircle" parameterType="string"  resultType="int" >
+		select count(a.rowid) circleId from le_circle a,le_userinfo b
+		where a.delete_flag='N' and a.user_id = b.rowid 	
+		<if test="nickName != null and nickName !=''">  
+			and b.nick_name like "%"#{nickName}"%"
+		</if>
+	</select>
+	
+	<select id="findCirByName" parameterType="string" resultType="Circle">		 		
+		select a.rowid circleId,b.nick_name nickName,a.content,a.publish_date publishDate,a.publish_addr publishAddr from le_circle a,le_userinfo b
+		where a.delete_flag='N' and a.user_id = b.rowid and b.nick_name like "%"#{nickName}"%"
+		order by a.publish_date desc		 
+		limit #{offset},#{pageSizeInt}	 	
+	</select>
+	
+	<update id="deleteCircle" parameterType="string">
+		update le_circle set delete_flag='Y' where rowid=#{circleId}
+	</update>
+</mapper>

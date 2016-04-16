@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：必须与对应的接口全类名一致 id:必须与对应接口的某个对应的方法名一致 -->
+<mapper namespace="com.lesport.mapper.WalkMapper">
+
+	<insert id="save" parameterType="UserWalk">
+		insert into
+		le_user_walk(rowid,user_id,step_id, date,start_time,end_time,distance,steps,second,speed,calorie,is_today,created_date)
+		values(#{walkId},#{userId},#{stepId},#{date},#{startTime},#{endTime},#{distance},#{steps},#{second},#{speed},#{calorie},#{isToday},#{createdDate})
+	</insert>
+
+	<select id="findById"  resultType="UserWalk">
+		select rowid walkId,step_id stepId, date,start_time startTime,end_time endTime,distance,steps,second,speed,calorie,is_today isToday from le_user_walk 
+		where delete_flag='N' and user_id=#{userId} 
+		<if test="date != null ">  
+		and date=#{date}
+		</if>  
+	</select>
+	
+	<select id="IsExist" parameterType="UserWalk" resultType="String">
+		select rowid from le_user_walk where delete_flag='N' and user_id=#{userId} and date=#{date}
+	</select>
+	
+	<update id="update" parameterType="UserWalk">
+<!-- 		update le_user_walk
+		set date=#{date},start_time=#{startTime},end_time=#{endTime},distance=#{distance},steps=#{steps},second=#{second},speed=#{speed},calorie=#{calorie},is_today=#{isToday}
+		where user_id=#{userId} and delete_flag='N' -->
+				update le_user_walk
+		set date=#{date},start_time=#{startTime},end_time=#{endTime},distance=#{distance},steps=#{steps},second=#{second},speed=#{speed},calorie=#{calorie},is_today=#{isToday}
+		where user_id=#{userId} and date=#{date} and delete_flag='N'
+	</update>
+	
+</mapper> 

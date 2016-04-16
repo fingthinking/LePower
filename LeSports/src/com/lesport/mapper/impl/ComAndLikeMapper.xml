@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 
+	namespace：必须与对应的接口全类名一致
+	id:必须与对应接口的某个对应的方法名一致	
+ -->
+ 
+ 
+<mapper namespace="com.lesport.mapper.ComAndLikeMapper">
+	<select id="getCommon" parameterType="String" resultType="ComAndLike">
+		select user_name userName, comment_time operationTime, content from (select COMMENT_UID,CONTENT,COMMENT_TIME from
+		 le_cir_comment where CIRCLE_ID = #{circleId}) a left join le_userinfo b on a.comment_uid = b.rowid
+	</select>
+	
+	<select id="getLike" parameterType="String" resultType="ComAndLike">
+		select user_name userName,a.CREATED_DATE operationTime from (select LIKE_UID,CREATED_DATE from 
+		le_cir_like where circle_id = #{cicleId}) a left join le_userinfo b on a.like_uid = b.rowid
+	</select>
+</mapper>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- namespace：必须与对应的接口全类名一致 id:必须与对应接口的某个对应的方法名一致 -->
+
+
+<mapper namespace="com.lesport.mapper.SysManageMapper">
+
+	<select id="getCircleInfo" resultType="ManageCircle">
+		select
+		e.circleId,e.publishTime,e.content,e.picUrls,e.location,e.userName,e.nickName,e.countOfComment,count(f.rowid)
+		countOfLike
+		from
+		(
+		select d.rowid circleId,d.publish_date publishTime,d.content,d.pic_url
+		picUrls,d.publish_addr location,d.userName,d.nickName,count(c.rowid)
+		countOfComment
+		from
+		(
+		select a.*,b.user_name userName,b.nick_name nickName
+		from le_circle a
+		left join le_userinfo b
+		on a.user_id=b.rowid
+		where a.delete_flag='N'
+		<if test="userId != null ">  
+		 and user_id=#{userId}
+		</if>  
+		<if test="beginTime != null ">  
+		<![CDATA[and created_date>#{beginTime}]]>
+		</if>  
+		<if test="endTime != null ">  
+		<![CDATA[and created_date<#{endTime}]]>
+		</if>  
+		) d
+		left join le_cir_comment c
+		on d.rowid=c.circle_id
+		group by d.rowid
+		)e
+		left join le_cir_like f
+		on e.circleId=f.circle_id
+		group by e.circleId
+	</select>
+
+</mapper>
