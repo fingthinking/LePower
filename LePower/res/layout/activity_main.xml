@@ -1,0 +1,42 @@
+<TabHost 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menuTabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <!-- 需要一个布局管理器 -->
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+        <!-- 由于tabhost是继承与FrameLayout所以需要一个Framelayout布局（内容页）
+        而且id必须是tabcontent -->
+        <FrameLayout 
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+             android:layout_above="@android:id/tabs"
+            >
+        </FrameLayout>
+        <!--  TabWidget必须标签，用来存放tab标签，且id必须为tabs -->
+        <TabWidget 
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            >
+            
+        </TabWidget>
+        
+    </RelativeLayout>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</TabHost>

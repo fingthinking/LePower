@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/menu_tab_selector"
+    android:gravity="center_horizontal|top"
+    android:paddingBottom="0dp"
+    android:paddingTop="0dp" >
+	<RadioButton 
+	    android:id="@+id/rbMenu"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_centerInParent="true"
+	    android:gravity="center"
+	    android:button="@null"
+	    android:clickable="false"
+	    android:scaleX="0.8"
+	    android:scaleY="0.8"
+	    android:text="成绩"
+	    android:textColor="@android:color/white"
+	    
+	    />
+    
+    <!--   
+    android:drawableTop="@drawable/item_menu_score"
+    <ImageView
+        android:id="@+id/tmMenuImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:gravity="top"
+        android:layout_centerHorizontal="true"
+		android:layout_marginTop="-5dp"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+         />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tmMenuImage"
+        android:layout_marginTop="-5dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:textSize="9sp" />
+   
+    -->
+
+</RelativeLayout>

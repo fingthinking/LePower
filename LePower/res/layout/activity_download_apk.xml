@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:progressbuttonattr="http://schemas.android.com/apk/res-auto" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="50dp"
+    android:paddingLeft="70dp"
+    android:paddingRight="70dp"
+    android:paddingTop="50dp" >
+
+    <TextView
+        android:id="@+id/tvSportName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tvSlogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+         />
+
+    <ImageView
+        android:id="@+id/ivSportIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="30dp"
+        
+         />
+
+    <TextView
+        android:id="@+id/tvSportIntro"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <com.lepower.widget.ProgressButton
+        android:id="@+id/progressButton1"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        progressbuttonattr:background="#43CBFE"       
+        progressbuttonattr:text=""
+        progressbuttonattr:textSize="30dp"
+         />
+
+</LinearLayout>

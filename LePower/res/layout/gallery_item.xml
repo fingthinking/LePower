@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black" >
+
+    
+    
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <!-- 
+        
+        <com.ruanko.lepower.circle.xlistview.MyImageView
+            android:id="@+id/gallery_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:scaleType="fitCenter"
+            >
+            
+        </com.ruanko.lepower.circle.xlistview.MyImageView>
+        
+         -->
+        
+        
+        <ImageView
+            android:id="@+id/gallery_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/gallery_image_propotion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="bottom|center_horizontal"
+            android:text="2/12"
+            android:textColor="@color/white"
+            
+            android:textSize="16sp" />
+
+    </FrameLayout>
+
+    <!-- 
+    
+    
+    <AbsoluteLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        
+        
+    </AbsoluteLayout>
+     -->
+
+</RelativeLayout>

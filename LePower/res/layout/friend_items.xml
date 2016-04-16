@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="10dip" >
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        />
+
+    <LinearLayout
+        android:id="@+id/user_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:layout_toRightOf="@id/photo"
+        android:orientation="horizontal"
+        android:layout_alignTop="@id/photo"
+        >
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="5dip"
+            android:text="赵云"
+            android:textSize="16sp"
+            android:textColor="#697fb1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分享了一段文字"
+            android:id="@+id/share_type"
+            android:textColor="@color/font_gray" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_info"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="10dip"
+        android:layout_toRightOf="@id/photo"
+        android:orientation="vertical" >
+
+        <!-- 文字内容 -->
+
+		<TextView 
+		    android:id="@+id/source"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:textSize="13sp"
+		    android:background="@drawable/textview_style"
+		    />
+
+        <LinearLayout
+            android:id="@+id/text_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/content_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我发表了文字"
+                android:textColor="@color/font_black" />
+        </LinearLayout>
+
+        <!-- 图片内容 -->
+        <com.lepower.widget.MyGridView
+              android:id="@+id/image_content"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:numColumns="3"
+              android:scrollbars="none"
+              android:gravity="center"
+              android:verticalSpacing="3dip"
+      		  android:layout_marginLeft="5dp"
+       		  android:horizontalSpacing="3dp"
+            />
+<!--         <LinearLayout
+            android:id="@+id/image_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:orientation="horizontal" >
+        </LinearLayout> -->
+
+        <!-- 链接内容 -->
+
+        <LinearLayout
+            android:id="@+id/link_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:background="#EDEEEE"
+            android:orientation="horizontal"
+            android:padding="5dip" >
+
+            <ImageView
+                android:layout_width="40dip"
+                android:layout_height="40dip"
+                android:id="@+id/link_icon"
+                android:src="@drawable/icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="2dip"
+                android:id="@+id/link_description"
+                android:text="这是一个 神奇的，很神奇的\n事件"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <!-- 发表时间 -->
+
+        <RelativeLayout
+            android:id="@+id/date_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="2小时前"
+                android:textColor="#C6C6C6" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dip"
+                android:layout_toRightOf="@id/date"
+                android:text="删除"
+                android:id="@+id/delete"
+                 android:textSize="16sp"
+                android:textColor="#959ba9" />
+
+           
+                <ImageButton
+                android:id="@+id/reply_icon"
+                android:layout_width="48dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/feed_more" />
+                
+        </RelativeLayout>
+
+        <!-- 回复 -->
+
+        <LinearLayout
+            android:id="@+id/reply_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/detail"
+            android:orientation="vertical" >
+
+            <!-- 赞 -->
+
+            <LinearLayout
+                android:id="@+id/favour_temp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/reply_favour"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dip"
+                    android:paddingLeft="5dip"
+                    android:paddingRight="5dip"
+                    android:paddingTop="10dip"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/s_msg_icon_praise"
+                        android:text="乐动力"
+                        android:id="@+id/favuor_name"
+                        android:textSize="16sp"
+                        android:textColor="#697fb1"  />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:id="@+id/praise_line"
+                    android:background="#cccccc" />
+            </LinearLayout>
+
+            <com.lepower.widget.MyListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@null"
+                android:background="@null"
+                android:id="@+id/reply_list" />
+            <TextView 
+                android:id="@+id/reply_more"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="更多"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                android:gravity="center"
+                />
+            <!-- 回复内容 -->
+           
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

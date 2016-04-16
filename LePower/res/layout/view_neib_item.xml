@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:padding="5dp" >
+    
+    <ImageView
+        android:id="@+id/iv_add_friend" 
+        android:src="@drawable/ic_lookingfriend_neib"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"/>
+    
+    <TextView 
+        android:id="@+id/tv_add_friend_item"
+        android:layout_toRightOf="@+id/iv_add_friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:text="附近好友"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp" />
+    
+    <ImageView
+        android:src="@drawable/ic_dogood_forward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp" />
+    
+    
+    
+
+</RelativeLayout>
+

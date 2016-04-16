@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#5bcc44"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#ffff00" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:paddingBottom="5dip"
+        android:paddingTop="5dip" >
+
+        <ImageView
+            android:id="@+id/smail"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dip"
+            android:src="@drawable/icon_discussion_expression" />
+
+        <Button
+            android:id="@+id/send_msg"
+            android:layout_width="60dip"
+            android:layout_height="40dip"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:background="@drawable/background_white_round"
+            android:text="发送"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/reply"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginRight="5dip"
+            android:layout_toLeftOf="@id/send_msg"
+            android:layout_toRightOf="@id/smail"
+            android:background="@drawable/background_white_round"
+            android:gravity="left|center_vertical"
+            android:paddingRight="36dip"
+            android:singleLine="false" />
+    </RelativeLayout>
+
+</LinearLayout>

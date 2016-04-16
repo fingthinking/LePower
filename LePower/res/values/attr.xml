@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 自定义圆形布局文件 -->
+    <declare-styleable name="roundedimageview">
+        <attr name="border_thickness" format="dimension" />
+        <attr name="border_inside_color" format="color" />
+        <attr name="border_outside_color" format="color" />
+    </declare-styleable>
+    
+     <declare-styleable name="ProgressButton">
+        <attr name="background" format="color" />
+        <attr name="foreground" format="color" />
+        <attr name="textcolor" format="color" />
+        <attr name="max" format="integer" />
+        <attr name="progress" format="integer" />
+        <attr name="textSize" format="dimension" />
+        <attr name="text" format="string" />
+    </declare-styleable>
+    
+     <declare-styleable name="ScoreMainListItemView">
+        <attr name="sTitle" format="string" />
+        <attr name="sItem0Value" format="string" />
+        <attr name="sItem1Value" format="string" />
+        <attr name="sItem2Value" format="string" />
+        <attr name="sItem3Value" format="string" />
+        <attr name="sItem4" format="string" />
+        <attr name="sItem4Value" format="string" />
+    </declare-styleable>
+     
+    <!-- 当前版本中，这些属性都必须设置属性格式 -->
+    <!-- 
+    sTitle,sItem0Value,sItem1Value,sItem2Value,sItem3Value,sItem4,sItem4Value;
+    <declare-styleable name="roundedimageview">
+        <attr name="border_thickness" format="dimension" />
+        <attr name="border_inside_color" format="color" />
+        <attr name="border_outside_color" format="color" />
+    </declare-styleable>
+     -->
+    
+</resources>

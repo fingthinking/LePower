@@ -1,0 +1,234 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lepower"
+    android:installLocation="auto"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="13"
+        android:targetSdkVersion="18" />
+    <!-- 权限设定 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+
+    <!-- <uses-permission android:name="android.permission.Ma"/> -->
+
+    <application
+        android:name="com.lepower.App"
+        android:allowBackup="true"
+        android:icon="@drawable/lepower_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+
+        <!-- 开始界面 -->
+        <activity
+            android:name="com.lepower.activity.LoginActivity"
+            android:launchMode="singleTask" >
+           <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            
+        </activity>
+        <!-- 手机注册界面 -->
+        <activity
+            android:name="com.lepower.activity.RegisterTelActivity"
+            android:launchMode="singleTask" />
+        <!-- 邮箱注册界面 -->
+        <activity
+            android:name="com.lepower.activity.RegisterEmailActivtiy"
+            android:launchMode="singleTask" />
+        <!-- 用户信息界面 -->
+        <activity
+            android:name="com.lepower.activity.RegisterUserInfoActivity"
+            android:launchMode="singleTask" >
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+
+        </activity>
+        <!-- 选择授权或注册 -->
+        <activity
+            android:name="com.lepower.activity.SelectActivity"
+            android:launchMode="singleTask" />
+        <!-- 手机绑定 -->
+        <activity
+            android:name="com.lepower.activity.BindTelActivity"
+            android:launchMode="singleTask" />
+        <!-- 邮箱绑定 -->
+        <activity
+            android:name="com.lepower.activity.BindEmailActivity"
+            android:launchMode="singleTask" />
+        <!-- 找回密码 -->
+        <activity
+            android:name="com.lepower.activity.PswByTelActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.lepower.activity.PswByEmailActivity"
+            android:launchMode="singleTask" />
+
+        <!-- 主界面的activity和service -->
+        <activity
+            android:name="com.lepower.activity.MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity android:name="com.lepower.activity.ScoreMainActivity" >
+        </activity>
+        <activity android:name="com.lepower.activity.TabActivity2" >
+        </activity>
+        <activity
+            android:name="com.lepower.activity.SportsStart"
+            android:theme="@style/translucent" >
+        </activity>
+        <activity android:name="com.lepower.activity.TabActivity4" >
+        </activity>
+        <activity android:name="com.lepower.activity.TabActivity5" >
+        </activity>
+        <activity android:name="com.lepower.activity.DownloadApkActivity" >
+        </activity>
+
+        <service android:name="com.lepower.activity.DownloadApkService" >
+        </service>
+
+        <!-- 好友管理activity和service -->
+        <activity android:name="com.lepower.activity.SelfActivity" >
+        </activity>
+        <activity android:name="com.lepower.activity.GuanzhuActivity" >
+        </activity>
+        <activity android:name="com.lepower.activity.DongtaiActivity" >
+        </activity>
+        <activity android:name="com.lepower.activity.FensiActivity" >
+        </activity>
+        <activity android:name="com.lepower.activity.FriendContent" >
+        </activity>
+        <activity android:name="com.lepower.activity.NebiFriendListActivity" >
+        </activity>
+        <activity
+            android:name="com.lepower.activity.AddFriendActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="share"
+                    android:scheme="weiboDemo" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.lepower.activity.FindFriendActivity" >
+        </activity>
+        <activity
+            android:name="com.lepower.weilogintest.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name" >
+        </activity>
+        <service android:name="com.lepower.activity.LocationService"></service>
+
+        <!-- QQ授权 -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent222222" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 微博 -->
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        
+        <!-- 乐友圈 开始-->
+        <activity
+            android:launchMode="standard"
+            android:name="com.lepower.activity.BaseCircleActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:name="com.lepower.activity.MyCircleActivity"
+            android:label="@string/title_activity_my_circle" >
+            
+        </activity>
+        <activity
+            android:launchMode="standard"
+            android:name="com.lepower.activity.PersonalCircleActivity"
+            android:label="@string/title_activity_personal_circle" >
+        </activity>
+        <activity
+            android:launchMode="singleTask"
+            android:name="com.lepower.activity.SingleActivity"
+            android:label="@string/title_activity_single" >
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:name="com.lepower.activity.PhotoGalleryActivity"
+            >
+        </activity>
+           <activity
+                android:launchMode="singleTask"
+            android:name="com.lepower.activity.ImageGridActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+             
+            android:name="com.lepower.activity.PublishedActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.lepower.activity.PhotoActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity 
+             android:launchMode="singleTask"
+            android:name="com.lepower.activity.PictureActivity"
+            ></activity>
+        
+        <!-- 乐友圈结束 -->
+        
+          <!-- 修改个人信息 -->
+        <activity android:name="com.lepower.activity.UpdateUserInfoActivity" />
+
+        <!-- 修改手机号 -->
+        <activity android:name="com.lepower.activity.UpdateTelActivity" />
+        <!-- 修改邮箱号 -->
+        <activity android:name="com.lepower.activity.UpdateEmailActivity" />
+        <!-- 修改密码 -->
+        <activity android:name="com.lepower.activity.UpdatePwdActivity" />
+        
+    </application>
+
+</manifest>

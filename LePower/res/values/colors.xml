@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="translucent_background">#90000000</color>
+    <color name="score_main_bg">#5cc7d1</color>
+    
+     <color name="white">#ffffff</color><!-- 白色 -->
+    <color name="black">#000000</color><!-- 黑色 -->
+    <color name="red">#ff0000</color><!-- 红色 -->
+    <color name="yellow">#ffff00</color><!-- 黄色 -->
+    <color name="gray">#808080</color><!-- 灰色 -->
+     <color name="btn_bg">#2BB0E0</color>
+     <color name="EFEFEF">#EFEFEF</color>
+<color name="font_blue">#2817F7</color>
+    <color name="font_black">#000000</color>
+    <color name="font_gray">#cccccc</color>
+    <color name="blue">#3A5FCD</color>
+    <color name="writemood">#E5E5E5</color>
+</resources>

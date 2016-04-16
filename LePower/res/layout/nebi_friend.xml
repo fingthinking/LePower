@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00a0e9">
+        
+        <ImageView 
+            android:id="@+id/iv_add_friend_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/bt_back"/>
+        
+         <TextView 
+        	style="@style/TitleStyle"
+        	android:text="附近好友"/>
+    </LinearLayout>
+    
+    <!-- 引入一个布局 -->
+    <include 
+        android:id="@+id/lv_nebi"
+        layout="@layout/nebi_friend_list_view"></include>
+    
+
+</LinearLayout>

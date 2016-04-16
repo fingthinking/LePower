@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/say"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/writemood" >
+
+<com.lepower.widget.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true" >
+</com.lepower.widget.TitleBar>
+
+    <RelativeLayout
+        android:id="@+id/rl_writemsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleBar"
+        android:background="@color/white"
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
+
+        <EditText
+            android:id="@+id/etMood"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignLeft="@+id/gridView"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/gridView"
+            android:background="@color/white"
+            android:hint="说点什么吧..." >
+            <requestFocus/>
+            </EditText>
+
+    <GridView
+            android:id="@+id/gridView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etMood"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="50dp"
+            android:horizontalSpacing="6dp"
+            android:numColumns="4"
+            android:verticalSpacing="6dp" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:layout_below="@+id/gridView"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/writemood" />
+
+        <ImageButton
+            android:id="@+id/choose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/etMood"
+            android:layout_below="@+id/etMood"
+            android:background="@color/white"
+            android:src="@drawable/emo_press"/>
+    </RelativeLayout>
+
+   <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:background="#f32f33"
+        android:layout_below="@id/rl_writemsg"
+        android:visibility="gone" >
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>

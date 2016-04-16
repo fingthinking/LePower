@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00a0e9">
+        
+        <ImageView 
+            android:id="@+id/iv_find_friend_back"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/bt_back"/>
+        
+         <TextView
+             android:layout_width="0dp"
+             android:layout_height="50dp"
+             android:layout_weight="4"
+             android:layout_gravity="center"
+             android:gravity="center"
+             android:textSize="22sp"
+             android:textStyle="bold"
+             android:textColor="@color/white" 
+        	 android:text="找好友"/>
+         
+         <Button 
+             android:id="@+id/btn_search"
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:textColor="@color/white"
+             android:textSize="15sp"
+             android:text="搜索"/>
+    </LinearLayout>
+    
+     <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/search_bar_bg" >
+
+            <EditText
+                android:id="@+id/et_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:hint="昵称/leID"
+                android:singleLine="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:textColor="#000"
+                android:drawableLeft="@drawable/search_bar_icon_normal" 
+                android:background="@drawable/search_bar_edit_bg" >               
+            </EditText>
+           
+        </LinearLayout>
+        
+     <!-- 引入一个布局 -->
+    <include 
+        android:id="@+id/lv_find_friend"
+        layout="@layout/friend_list_view"></include>
+     
+</LinearLayout>

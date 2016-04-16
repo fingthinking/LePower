@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="#98D468"
+    android:onClick="onClickPop"
+    android:gravity="center_horizontal|top"
+    android:paddingBottom="0dp"
+    android:descendantFocusability="blocksDescendants"
+    android:paddingTop="0dp" >
+	<RadioButton 
+	    android:id="@+id/rbMenu"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_centerInParent="true"
+	    android:gravity="center"
+	    android:button="@null"
+	    android:descendantFocusability="blocksDescendants"
+	    android:onClick="onClickPop"
+	    android:text="成绩"
+	    android:textColor="@android:color/white"
+	    
+	    />
+   
+
+</RelativeLayout>

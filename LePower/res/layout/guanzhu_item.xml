@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp" >
+    
+    <com.lepower.widget.RoundImageView 
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/iv_friend"/>
+    
+    <RelativeLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_friend"
+      	android:layout_marginLeft="10dp">
+        
+        <TextView 
+            android:id="@+id/tv_nickName"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="林丹"
+            android:textSize="15sp"/>
+        <LinearLayout 
+            android:layout_below="@+id/tv_nickName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+  			android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            
+            <TextView 
+                android:id="@+id/tv_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="男"/>
+            
+            <TextView 
+                android:id="@+id/tv_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="23"/>
+            
+        </LinearLayout>
+    </RelativeLayout>
+    
+    <ImageView 
+        android:id="@+id/iv_not_guanzhu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/left_icon_follow_down"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"/>
+    
+    <ProgressBar 
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:visibility="gone"/>
+    
+
+</RelativeLayout>

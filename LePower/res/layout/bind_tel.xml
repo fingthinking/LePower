@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#f1f0f6"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/login_top_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:background="#37d004" >
+
+        <ImageView
+            android:id="@+id/bind_back"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:onClick="login_back"
+            android:src="@drawable/logo1"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/bind_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="绑定"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_top_layout"
+        android:layout_marginTop="22dp"
+        android:background="#fff"
+        android:paddingBottom="11dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="11dp"  >
+
+        <TextView
+            android:id="@+id/user_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="手机号码   +86"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/bind_tel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/user_text"
+            android:background="#ffff"
+            android:layout_marginLeft="10dp"
+            android:hint="请输入手机号码"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/four"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/two"
+        android:layout_marginTop="1dp"
+        android:background="#fff"
+        android:paddingBottom="11dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="11dp">
+
+        <TextView
+            android:id="@+id/xufan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="密码"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/bind_pwd"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/xufan"
+            android:background="#ffff"
+            android:layout_marginLeft="10dp"
+            android:hint="请输入6-20位密码"
+            android:password="true"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/four" >
+
+        <Button
+            android:id="@+id/bind"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/btn_style_green"
+            android:onClick="login_pw"
+            android:text="绑定登录"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/bind_switch"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/bind"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_style_green"
+            android:onClick="login_mainweixin"
+            android:text="切换至邮箱绑定"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

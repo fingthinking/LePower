@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:scorecontrol="http://schemas.android.com/apk/res/com.lepower"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DDDDDD"
+    android:orientation="vertical"
+    android:scrollbars="vertical" >
+        <!--
+          
+        -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:background="#5cc9fb" >
+
+
+        <ImageView
+            android:id="@+id/ivWeatherBg"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_weather_state" />
+
+        <TextView
+            android:id="@+id/tvNowAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="江苏-苏州"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/tvTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/tvNowAddress"
+            android:text="天气"
+            android:textColor="@android:color/black" />
+
+        <!-- 此处加入圆形头像 -->
+
+        <ImageView
+            android:id="@+id/rivHead"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="80dp"
+            android:onClick="onClick2UserInfo"
+            android:src="@drawable/qqhead" />
+
+        <ImageView
+            android:id="@+id/ivListArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="128dp"
+            android:onClick="onClick2UserInfo"
+            android:src="@drawable/icon_list_arrow" />
+
+        <TextView
+            android:id="@+id/tvSportsMan"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_alignTop="@id/ivListArrow"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/ivListArrow"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="onClick2UserInfo"
+            android:text="运动健将"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/tvNickName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tvSportsMan"
+            android:layout_alignBottom="@+id/tvSportsMan"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/rivHead"
+            android:clickable="true"
+            android:onClick="onClick2UserInfo"
+            android:text="昵称"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+         <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+        <com.lepower.widget.ScoreMainListItemView
+            android:id="@+id/smlivWalk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            scorecontrol:sItem0Value="0次"
+            scorecontrol:sItem1Value="0m"
+            scorecontrol:sItem2Value="0h"
+            scorecontrol:sItem3Value="0Cal"
+            scorecontrol:sItem4="总步数"
+            scorecontrol:sItem4Value="0步"
+            scorecontrol:sTitle="步行记录" >
+        </com.lepower.widget.ScoreMainListItemView>
+
+        <com.lepower.widget.ScoreMainListItemView
+            android:id="@+id/smlivRunning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            scorecontrol:sItem0Value="0次"
+            scorecontrol:sItem1Value="0m"
+            scorecontrol:sItem2Value="0h"
+            scorecontrol:sItem3Value="0Cal"
+            scorecontrol:sItem4="本月跑量"
+            scorecontrol:sItem4Value=""
+            scorecontrol:sTitle="跑步记录" >
+        </com.lepower.widget.ScoreMainListItemView>
+
+        <com.lepower.widget.ScoreMainListItemView
+            android:id="@+id/smlivBicyling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            scorecontrol:sItem0Value="0次"
+            scorecontrol:sItem1Value="0m"
+            scorecontrol:sItem2Value="0h"
+            scorecontrol:sItem3Value="0Cal"
+            scorecontrol:sItem4="本月数据"
+            scorecontrol:sItem4Value=""
+            scorecontrol:sTitle="骑行记录" >
+        </com.lepower.widget.ScoreMainListItemView>
+
+        <com.lepower.widget.ScoreMainListItemView
+            android:id="@+id/smlivJumpRope"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            scorecontrol:sItem0Value="0次"
+            scorecontrol:sItem1Value="0个"
+            scorecontrol:sItem2Value="-"
+            scorecontrol:sItem3Value="0Cal"
+            scorecontrol:sItem4="本月数据"
+            scorecontrol:sItem4Value=""
+            scorecontrol:sTitle="跳绳记录" >
+        </com.lepower.widget.ScoreMainListItemView>
+
+        <com.lepower.widget.ScoreMainListItemView
+            android:id="@+id/smlivPushUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            scorecontrol:sItem0Value="0次"
+            scorecontrol:sItem1Value="0个"
+            scorecontrol:sItem2Value="-"
+            scorecontrol:sItem3Value="0Cal"
+            scorecontrol:sItem4="本月数据"
+            scorecontrol:sItem4Value=""
+            scorecontrol:sTitle="俯卧撑" >
+        </com.lepower.widget.ScoreMainListItemView>
+
+        <com.lepower.widget.ScoreMainListItemView
+            android:id="@+id/smlivSitUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            scorecontrol:sItem0Value="0次"
+            scorecontrol:sItem1Value="0个"
+            scorecontrol:sItem2Value="-"
+            scorecontrol:sItem3Value="0Cal"
+            scorecontrol:sItem4="本月数据"
+            scorecontrol:sItem4Value=""
+            scorecontrol:sTitle="仰卧起坐" >
+        </com.lepower.widget.ScoreMainListItemView>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
