@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/background_image" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="骑车轨迹"
+            android:textColor="#fff"
+            android:textSize="22sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <Spinner
+            android:id="@+id/sp_choose_runid"
+            android:layout_width="4dp"
+            android:layout_height="60dp"
+            android:layout_weight="4" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="2dp"
+            android:layout_height="53dp"
+            android:layout_weight="2"
+            android:background="@drawable/ok_bg"
+            android:onClick="checkHistory"
+            android:text="OK"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         >
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/map_View"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:clickable="true" />
+    </LinearLayout>
+
+</LinearLayout>

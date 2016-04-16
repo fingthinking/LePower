@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#555555"   >
+	
+     
+    
+    <ImageView
+        android:id="@+id/main_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo" />
+
+    
+     <Button
+        android:id="@+id/main_exit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+		android:layout_alignParentBottom="true"
+        android:background="@drawable/button_normal"
+        android:layout_marginBottom="50dp"
+        android:text="退出"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:textSize="30sp" />
+     
+      <Button
+        android:id="@+id/main_train"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+		android:layout_above="@+id/main_exit"
+        android:background="@drawable/button_normal"
+        android:text="训练"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        
+        android:layout_alignLeft="@+id/main_train"
+        android:layout_alignRight="@+id/main_train"
+        android:layout_above="@+id/main_train"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal" >
+        
+	    <Button
+	        android:id="@+id/main_recordday"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+			android:background="@drawable/button_normal"
+	        android:layout_weight="1"
+	        android:text="每日明细" />
+    
+	    <TextView 
+	        android:layout_width="20dp"
+	        android:layout_height="wrap_content"
+	        
+	        />
+	
+	    <Button
+	        android:id="@+id/main_recordmonth"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+			android:background="@drawable/button_normal"
+	        android:layout_weight="1"
+	        android:text="每月统计" />
+    
+    </LinearLayout>
+
+</RelativeLayout>
+

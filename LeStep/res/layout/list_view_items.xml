@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:padding="5dp" 
+    android:layout_margin="5dp"
+    android:background="@drawable/list_item_back">
+
+    <TextView
+        android:id="@+id/txt_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="00:00 ~ 00:00 共运动了120分钟"
+        android:textColor="@color/md_grey_900"
+        android:textSize="18sp" />
+
+	<TextView
+	    android:id="@+id/txt_record"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="5dp"
+	    android:layout_alignLeft="@+id/txt_time"
+	    android:layout_below="@+id/txt_time"
+	    android:text="本次走了123步，约30米，消耗了8千卡，平均32步/分"
+	    android:textColor="@color/md_grey_800"
+	    android:textSize="14sp" />
+
+	<ImageButton
+	    android:id="@+id/imageButton1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_alignParentRight="true"
+	    android:layout_alignTop="@+id/txt_time_meter"
+	    android:background="#ffff"
+	    android:src="@drawable/btn_to_next" />
+
+</RelativeLayout>

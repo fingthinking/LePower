@@ -1,0 +1,18 @@
+<uml>
+   <greenVersion="30500"/>
+   <type>
+      <name="=LeSitUp/src<com.lepower.activity{TrainActivity.java[TrainActivity"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="0"/>
+      <y="0"/>
+   </type>
+   <type>
+      <name="=LeSitUp/src<com.lepower.activity{TrainActivity.java[TrainActivity[StepCountReceiver"/>
+      <height="-1"/>
+      <width="-1"/>
+      <x="200"/>
+      <y="0"/>
+   </type>
+</uml>
+

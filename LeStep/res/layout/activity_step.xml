@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 上半部分 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_indigo_A100"
+        android:orientation="vertical" >
+
+        <!-- 顶部栏 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp" >
+
+            <ImageButton
+                android:id="@+id/btn_statistic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#0fff"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_statistic" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <!-- 今日活动 -->
+
+                <TextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="吴中"
+                    android:textColor="@color/md_white_1000"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="阴  0~24℃  空气质量  55 "
+                    android:textColor="@color/md_grey_700"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/imgbtn_setting"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="#0fff"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_settings" />
+        </LinearLayout>
+        <!-- 主体运动框 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <!-- 绘图 -->
+
+            <include layout="@layout/view_click" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="本次："
+                    android:textColor="@color/md_orange_A400"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/txt_this_step"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+0步"
+                    android:textColor="@color/md_light_green_A700"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="|"
+                    android:textColor="@color/md_grey_200"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txt_this_meter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="约0米"
+                    android:textColor="@color/md_purple_A200"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="|"
+                    android:textColor="@color/md_grey_200"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txt_this_caloria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0千卡"
+                    android:textColor="@color/md_light_green_A700"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_record"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/md_blue_100" >
+    </ListView>
+
+</LinearLayout>

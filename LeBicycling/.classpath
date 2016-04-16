@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="lib" path="D:/workspace/LeBicycling/libs/baidumapapi_base_v3_7_0.jar"/>
+	<classpathentry kind="lib" path="D:/workspace/LeBicycling/libs/baidumapapi_cloud_v3_7_0.jar"/>
+	<classpathentry kind="lib" path="D:/workspace/LeBicycling/libs/baidumapapi_map_v3_7_0.jar"/>
+	<classpathentry kind="lib" path="D:/workspace/LeBicycling/libs/baidumapapi_radar_v3_7_0.jar"/>
+	<classpathentry kind="lib" path="D:/workspace/LeBicycling/libs/baidumapapi_search_v3_7_0.jar"/>
+	<classpathentry kind="lib" path="D:/workspace/LeBicycling/libs/baidumapapi_util_v3_7_0.jar"/>
+	<classpathentry kind="lib" path="D:/workspace/LeBicycling/libs/locSDK_6.13.jar"/>
+	<classpathentry kind="lib" path="D:/workspace/LeBicycling/libs/mpandroidchartlibrary-2-1-5.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

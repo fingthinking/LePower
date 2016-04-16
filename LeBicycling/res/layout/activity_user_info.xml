@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f0f6"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/register_user_info_top_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:background="#37d004" >
+
+        <ImageView
+            android:id="@+id/login_reback_btn"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:onClick="login_back"
+            android:src="@drawable/logo1"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="注册"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/register_user_info_bgd_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/register_user_info_top_layout"
+        android:layout_weight="4" >
+
+        <ImageView
+            android:id="@+id/img_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background"
+            android:scaleType="fitXY" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true" >
+
+            <com.lepower.widget.RoundImageView
+                android:id="@+id/img_userhead"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/default_head" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/register_user_info_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/register_user_info_bgd_layout"
+            android:background="#fff"
+            android:paddingBottom="11dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="11dp" >
+
+            <TextView
+                android:id="@+id/psw_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="昵称"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/nickName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/psw_text"
+                android:background="#ffff"
+                android:hint="请输入昵称"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/register_user_info_sex"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@+id/register_user_info_nickname"
+            android:layout_marginTop="1dp"
+            android:background="#fff"
+            android:paddingBottom="11dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="11dp" >
+
+            <TextView
+                android:id="@+id/sex_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="性别"
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:id="@+id/radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/sex_text"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="男" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="女" />
+            </RadioGroup>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/register_user_info_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/register_user_info_sex"
+            android:background="#fff"
+            android:layout_marginTop="1dp"
+            android:paddingBottom="11dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="11dp" >
+
+            <TextView
+                android:id="@+id/register_user_info_height_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="身高"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txt_height"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/register_user_info_height_textview"
+                android:background="#ffff"
+                android:textColor="#000"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/register_user_info_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/register_user_info_height"
+            android:background="#fff"
+            android:layout_marginTop="1dp"
+            android:paddingBottom="11dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="11dp" >
+
+            <TextView
+                android:id="@+id/register_user_info_weight_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="体重"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txt_weight"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/register_user_info_weight_textview"
+                android:background="#ffff"
+                android:layout_marginTop="1dp"
+                android:textColor="#000"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/register_user_info_birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/register_user_info_weight"
+            android:background="#fff"
+            android:layout_marginTop="1dp"
+            android:paddingBottom="11dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="11dp" >
+
+            <TextView
+                android:id="@+id/register_user_info_birthday_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="生日"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txt_birthday"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/register_user_info_birthday_textview"
+                android:background="#ffff"
+                android:textColor="#000"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/register_user_info_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/register_user_info_birthday"
+            android:background="#fff"
+            android:layout_marginTop="1dp"
+            android:paddingBottom="11dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="11dp"  >
+
+            <TextView
+                android:id="@+id/register_user_info_address_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="1dp"
+                android:text="地址"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txt_address"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/register_user_info_address_textview"
+                android:background="#ffff"
+                android:textColor="#000"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_finish"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_style_green"
+            android:onClick="login_pw"
+            android:text="完成"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>

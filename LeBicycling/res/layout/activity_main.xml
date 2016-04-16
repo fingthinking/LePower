@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/main_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:background="@drawable/bicycling4" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:text="生命，永不止步"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+         <TextView
+            android:id="@+id/wel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:textColor="#ff6600"
+            android:text="welcome"
+            />
+    </RelativeLayout>
+
+    
+     <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            >
+            <Button
+                android:id="@+id/start"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_alignParentLeft="true"
+                android:onClick="startRun"
+                android:background="@drawable/main_status_bicyling"
+                android:textColor="#fff"
+                android:text="开始骑车"
+                />
+            <TextView
+                android:id="@+id/welcome"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical|center_horizontal"
+                android:textColor="#fff"
+                android:text="退出登录"
+                android:textSize="18sp"
+                android:background="@drawable/main_status_walk"
+                />
+            
+             <Button
+                android:id="@+id/query"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:onClick="queryData"
+                android:layout_gravity="center_vertical|right"
+                android:background="@drawable/main_status_running"
+                android:textColor="#fff"
+                android:text="查看数据"
+                />
+           
+              
+        </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bicycling2"
+        android:layout_weight="5" >
+       
+     
+    </RelativeLayout>
+
+</LinearLayout>

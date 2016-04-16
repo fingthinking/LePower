@@ -1,0 +1,159 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/totalDistance"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="40dp"
+            android:text="0.00"
+            android:textColor="#000"
+            android:textSize="50sp" />
+
+        <TextView
+            android:id="@+id/totalDesciption"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_alignLeft="@+id/totalDistance"
+            android:layout_below="@+id/totalDistance"
+            android:paddingLeft="13dp"
+            android:text="距离：(km)"
+            android:textColor="#808080"
+            android:textSize="14sp" />
+    </RelativeLayout>
+    
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" >
+         <TextView 
+             android:id="@+id/time"
+             android:layout_width="match_parent"
+             android:layout_height="40dp"
+             android:text="00:00:00"
+             android:textColor="#000"
+             android:gravity="center_horizontal"
+             android:textSize="20sp"
+             />
+     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:layout_marginTop="5dp"
+        
+        >
+
+        <TextView
+            android:id="@+id/currentSpeed"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:textColor="#000"
+            android:gravity="center_horizontal"
+            android:text="0.00"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/speed"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="0.00"
+            android:gravity="center_horizontal"
+            android:textColor="#000"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/calorie"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="0.00"
+            android:gravity="center_horizontal"
+            android:textColor="#000"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/currentSpeedDesciption"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:text="当前速度(m/s)"
+            android:gravity="center_horizontal"
+            android:textColor="#808080"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/speedDesciption"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:text="平均速度(m/s)"
+            android:gravity="center_horizontal"
+            android:textColor="#808080"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/calorieDesciption"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:text="热量(千卡)"
+            android:gravity="center_horizontal"
+            android:textColor="#808080"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/IVpause"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_sport_pause_night" />
+
+        <ImageView
+            android:id="@+id/IVstart"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_sport_continue_pressed" />
+
+        <ImageView
+            android:id="@+id/IVfinish"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/ic_sport_finish" />
+    </LinearLayout>
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/bmapView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="10dp"
+        android:clickable="true" />
+
+</LinearLayout>

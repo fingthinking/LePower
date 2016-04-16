@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f0f6"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/register_email_lay"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:background="#37d004"  >
+
+        <ImageView
+            android:id="@+id/register_back"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:onClick="login_back"
+            android:src="@drawable/logo1"
+            android:textColor="#fff"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="邮箱注册"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_email_lay"
+        android:layout_marginTop="22dp"
+        android:background="#fff"
+        android:paddingBottom="11dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="11dp" >
+
+        <TextView
+            android:id="@+id/register_email_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="登录邮箱"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/register_email_p"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/register_email_textview"
+            android:background="#ffff"
+            android:layout_marginLeft="10dp"
+            android:hint="请输入邮箱地址"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textSize="18sp" />
+    </RelativeLayout>
+    
+     <RelativeLayout
+        android:id="@+id/one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/two"
+        android:layout_marginTop="1dp"
+        android:background="#fff"
+        android:paddingBottom="8dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="8dp" 
+         >
+
+        <TextView
+            android:id="@+id/yanzhengma_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="验证码    "
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/register_yanzhengma_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/yanzhengma_textview"
+            android:background="#ffff"
+            android:layout_marginLeft="10dp"
+            android:hint="请输入验证码"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/get_yanzhengma_email"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:background="#37d004"
+            android:gravity="center"
+            android:text="  获取验证码  "
+            android:textColor="#ffffff"
+            android:textSize="18sp"/>
+    </RelativeLayout>
+    
+
+    <RelativeLayout
+        android:id="@+id/three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/one"
+        android:layout_marginTop="22dp"
+        android:background="#fff"
+        android:paddingBottom="11dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="11dp">
+
+        <TextView
+            android:id="@+id/register_email_psw_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="设置密码"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/register_password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/register_email_psw_textview"
+            android:background="#ffff"
+            android:layout_marginLeft="10dp"
+            android:hint="请输入6-20位密码"
+            android:password="true"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textSize="18sp" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/four"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/three"
+        android:layout_marginTop="1dp"
+        android:background="#fff"
+        android:paddingBottom="11dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="11dp" >
+
+        <TextView
+            android:id="@+id/register_email_repsw_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="设置密码"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/register_repassword"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/register_email_repsw_textview"
+            android:background="#ffff"
+            android:layout_marginLeft="10dp"
+            android:hint="请再次确认输入密码"
+            android:password="true"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textSize="18sp" />
+    </RelativeLayout>
+    
+     <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/four" >
+
+        <Button
+            android:id="@+id/register_next_step"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/btn_style_green"
+            android:onClick="register_email_next_step_btn"
+            android:text="下一步"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/register_switch_to_tel"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/register_next_step"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_style_green"
+            android:onClick="login_mainweixin"
+            android:text="切换至手机号注册"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+    
+
+</RelativeLayout>

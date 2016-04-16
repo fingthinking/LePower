@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/logoword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:src="@drawable/logoword4" />
+
+    <RelativeLayout
+        android:id="@+id/two"
+        android:layout_width="280dp"
+        android:layout_height="101dp"
+        android:layout_below="@id/logoword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/yuanjiao" >
+
+        <ImageView
+            android:id="@+id/loginperson"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/login_person" />
+
+        <EditText
+            android:id="@+id/login_username"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/yuanjiao"
+            android:hint="请输入登录邮箱/手机号"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/fengexian"
+            android:layout_width="280dp"
+            android:layout_height="1dp"
+            android:layout_below="@id/login_username"
+            android:background="#f1f0f6" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/fengexian"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/login_lock" />
+
+        <EditText
+            android:id="@+id/login_password"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/fengexian"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/yuanjiao"
+            android:hint="请输入登录密码"
+            android:password="true"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textSize="15sp" >
+        </EditText>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_login" >
+
+        <ImageView
+            android:id="@+id/shuxian"
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="#adb2ac" />
+
+        <TextView
+            android:id="@+id/login_register"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@id/shuxian"
+            android:gravity="center"
+            android:text="新用户注册"
+            android:textColor="#000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/login_forget_password"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/shuxian"
+            android:gravity="center"
+            android:text="忘记密码"
+            android:textColor="#000"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/hengxian"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/login_forget_password"
+            android:layout_marginTop="30dp"
+            android:background="#adb2ac" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hengxian"
+            android:layout_marginTop="20dp"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/login_qq"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/login_qq" />
+
+            <ImageView
+                android:id="@+id/login_weibo"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/login_qq"
+                android:background="@drawable/login_weibo" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/login_pass"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/three"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="跳过注册进入试用"
+        android:textColor="#000"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/login_login"
+        android:layout_width="280dp"
+        android:layout_height="45dp"
+        android:layout_alignLeft="@+id/two"
+        android:layout_below="@+id/two"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_style_green"
+        android:text="登    录"
+        android:textColor="#ffffff"
+        android:textSize="26sp" />
+
+</RelativeLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_gravity="center"
+        android:background="@drawable/run_background2">
+        <ImageView 
+            android:id="@+id/threepoint"
+            android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:src="@drawable/threepoint"
+                   android:layout_alignParentRight="true"
+                   />
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#FF6600"
+            android:textSize="20dp"
+            android:text="精准 GPS 轨迹记录
+                                                                                     专业化运动数据分析
+                                                                                     记录自动云端同步
+                                                                                     乐跑全国排行榜有趣的跑友圈社交
+                                                                                      提示：使用之前请打开GPS导航！"
+      
+       />
+       
+    </RelativeLayout>
+    
+    
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp"
+        android:background="@drawable/run_background">
+        
+        <ImageView 
+        android:id="@+id/running_light"
+        android:layout_width="wrap_content"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/running_light"
+        android:layout_marginLeft="40dp"
+        />
+        <FrameLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"     
+        android:layout_marginRight="40dp"
+        android:layout_alignParentRight="true">
+        <ImageView 
+        android:id="@+id/bicycle_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:padding="10dp"   
+        android:src="@drawable/bicycle_light" />
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp"
+            android:text="跑步记录"/>
+        </FrameLayout>
+       
+       
+    </RelativeLayout>
+    
+
+</LinearLayout>

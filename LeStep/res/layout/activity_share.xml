@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:round="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_blue_400" >
+
+    <LinearLayout
+        android:id="@+id/ll_share_titile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_blue_400"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp" >
+
+        <ImageButton
+            android:id="@+id/btn_prev"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#0fff"
+            android:scaleType="fitXY"
+            android:src="@drawable/btn_prev" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_share_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@color/md_grey_200" >
+
+        <ImageView
+            android:id="@+id/btn_share"
+            android:scaleX="0.75"
+            android:scaleY="0.75"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_share_long" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_share_center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ll_share_bottom"
+        android:layout_below="@id/ll_share_titile" 
+        android:background="@color/md_white_1000">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/ll_half_above"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/md_blue_400"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="一共走了"
+                    android:textColor="@color/md_white_1000"
+                    android:textSize="24sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|bottom"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/txt_steps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/md_white_1000"
+                        android:textSize="45sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:text="步"
+                        android:textColor="@color/md_white_1000"
+                        android:textSize="24sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txt_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3月9日"
+                    android:textColor="@color/md_white_1000"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"  
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/txt_nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|top"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="fing"
+                    android:textColor="@color/md_grey_600"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/txt_distance_and_caloria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="走路0米，消耗热量0千卡"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txt_arouse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="革命尚未成功，同志仍需努力"
+                    android:textSize="20sp" />
+                
+            </LinearLayout>
+        </LinearLayout>
+       
+
+        <com.lestep.widget.RoundImageView
+            android:id="@+id/img_user_head"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/meizi"
+            round:border_inside_color="#fff7f2e9"
+            round:border_outside_color="#ffd5d1c8"
+            round:border_thickness="2dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+    <LinearLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        
+         <TextView 
+        android:id="@+id/record_date"
+        android:paddingLeft="10dp"
+         android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:text="2016-03-09 21:18"/>
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:orientation="horizontal"  >
+        
+        <TextView 
+        android:id="@+id/record_distance"
+         android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="2.6"/>
+        
+        <TextView 
+            android:paddingLeft="5dp"
+        android:layout_width="wrap_content"
+         android:textColor="#FFFFFF"
+        android:layout_height="wrap_content"
+        android:text="KM"/>
+        
+        <TextView 
+        android:id="@+id/record_time"
+        android:paddingLeft="20dp"
+        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:23:68"/>
+        
+    </LinearLayout>
+    
+  </LinearLayout>
+  
+       <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"           
+             android:layout_alignParentRight="true" 
+             android:paddingTop="16dp"             
+            android:paddingRight="20dp"
+            android:src="@drawable/run_record"/>  
+</RelativeLayout>

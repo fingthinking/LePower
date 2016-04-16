@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">乐骑行</string>
+     <string name="title_activity_location">LocationActivity</string>
+    <string name="title_activity_map_history">MapHistoryActivity</string>
+    <string name="title_activity_bicycling_record">BicyclingRecordActivity</string>
+    <string name="title_activity_bicycling_trace">BicyclingTraceActivity</string>
+</resources>
