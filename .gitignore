@@ -1,5 +1,4 @@
 /source
-/*/bin
 # Built application files
 *.apk
 *.ap_
@@ -32,4 +31,3 @@ proguard/
 
 # Android Studio captures folder
 captures/
->>>>>>> e9338dd40bac2c94dd07f76e1beee3d0dbe0bb16
